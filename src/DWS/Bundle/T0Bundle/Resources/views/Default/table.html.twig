@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<ul>
+
+	<li>Hello {{ number }}!</li>
+	
+	<li>Hello <em>{{ numbers | join('>') }}</em> </li>
+</ul>
+	
+	<table>
+	
+	{% for i in 0..10 %}
+		<tr><td>{{ i }} * {{ number }}</td><td> = </td> <td>{{ i * number }}</td></tr>
+	{% endfor %}
+	
+	</table>
+	
+
+	
+{% endblock %}

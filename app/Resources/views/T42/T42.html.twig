@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+{% endblock %}
+
+{% block title %} Práctica T42 {% endblock %}
+
+{% block body %}
+
+{% if page == 'about' %}
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem iste sint optio minima aut
+ sed maiores nostrum cum molestiae labore voluptatem eligendi minus natus recusandae velit architecto
+  alias consequatur aliquid.</p>
+
+
+{% elseif page == 'contact' %}
+
+<form>
+  <div class="row">
+    <div class="six columns">
+      <label for="exampleEmailInput">Your email</label>
+      <input class="u-full-width" placeholder="test@mailbox.com" id="exampleEmailInput" type="email">
+    </div>
+    <div class="six columns">
+      <label for="exampleRecipientInput">Reason for contacting</label>
+      <select class="u-full-width" id="exampleRecipientInput">
+        <option value="Option 1">Questions</option>
+        <option value="Option 2">Admiration</option>
+        <option value="Option 3">Can I get your number?</option>
+      </select>
+    </div>
+  </div>
+  <label for="exampleMessage">Message</label>
+  <textarea class="u-full-width" placeholder="Hi Dave …" id="exampleMessage"></textarea>
+  <label class="example-send-yourself-copy">
+    <input type="checkbox">
+    <span class="label-body">Send a copy to yourself</span>
+  </label>
+  <input class="button-primary" value="Submit" type="submit">
+</form>
+
+	
+
+{% endif %}
+
+
+<ul>
+	<li><a href="{{ path('_welcome') }}">Home</a></li>
+	<li><a href=" {{ path('_about') }}">About</a></li>
+	<li><a href=" {{ path('_contact') }}">Contact</a></li>
+</ul>
+{% endblock %}

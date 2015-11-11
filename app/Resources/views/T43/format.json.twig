@@ -1,0 +1,9 @@
+{% spaceless %}
+
+{
+{% for key,item in data %}
+	"{{ key }}":{{ item }}{% if not loop.last %},{% endif %}
+{% endfor %}
+}
+
+{% endspaceless %}
