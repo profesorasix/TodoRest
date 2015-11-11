@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Práctica T43. Índice {% endblock %}
+
+{% block body %}
+
+<ul>
+	<li><a href={{ path('_t43_number', {'number':'99999'}) }}>numberAction</a></li>
+	<li><a href={{ path('_t43_text', {'text':'Lorem ipsum dolor sit amet'}) }}>textAction</a></li>
+	<li><a href={{ path('_t43_default', {'page':'12'}) }}>defaultAction</a></li>
+	<li><a href={{ path('_t43_format', {'year':'1999', '_format':'html'}) }}>formatAction(html)</a></li>
+	<li><a href={{ path('_t43_format', {'year':'1999', '_format':'json'}) }}>formatAction(json)</a></li>
+</ul> 
+ 
+ 
+        
+{% endblock %}

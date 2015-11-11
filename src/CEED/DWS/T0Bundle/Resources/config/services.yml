@@ -1,4 +1,0 @@
-services:
-#    ceeddwst0.example:
-#        class: CEED\DWS\T0Bundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]

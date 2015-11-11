@@ -1,0 +1,10 @@
+_t44_index:
+  path: /
+  defaults: { _controller: AppBundle:T44:index }
+
+_t44_static:
+  path: /{page_name}
+  defaults: { _controller: AppBundle:T44:static }
+  methods: [GET]
+  requirements:    
+    _format: info|contact|about   

@@ -1,16 +1,11 @@
-ceeddwst0:
-    resource: "@CEEDDWST0Bundle/Resources/config/routing.yml"
-    prefix:   /
-
-dwst0:
-    resource: "@DWST0Bundle/Controller/"
-    type:     annotation
-    prefix:   /
-
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
  
-app_yml:
-    resource: "@AppBundle/Resources/config/routing.yml"
-    prefix:   /T43    
+T43_yml:
+    resource: "@AppBundle/Resources/config/T43_routing.yml"
+    prefix:   /T43
+    
+T44_yml:
+    resource: "@AppBundle/Resources/config/T44_routing.yml"
+    prefix:   /T44    

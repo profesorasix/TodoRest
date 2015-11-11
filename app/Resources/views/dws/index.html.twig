@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Desarrollo Web en entorno servidor {% endblock %}
+
+{% block body %}
+
+<h1>Symfony</h1>
+<h2>Índice de prácticas </h2>
+
+<ul>
+	<li><strong>Controladores y Rutas</strong></li>
+	<ul>
+		<li><a href="{{ path('_t42_index') }}">T42</a></li>
+		<li><a href="{{ path('_t43_index') }}">T43</a></li>
+		<li><a href="{{ path('_t44_index') }}">T44</a></li>
+	</ul>	
+	<li><strong>Doctrine</strong></li>
+	<ul>
+		<li><a href="{{ path('_t51_index') }}">Entidad producto, operaciones básicas</a></li>			
+	</ul>
+
+</ul>
+
+{% endblock %}

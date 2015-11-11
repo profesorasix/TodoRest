@@ -12,8 +12,15 @@ use AppBundle\Entity\Category;
 
 class ProductController extends Controller
 {
+	/**
+	 * @Route("/T51/", name="_t51_index")
+	 */
+	public function indexAction() {
+		return $this->render('T51/index.html.twig');
+	}
+	
     /**
-     * @Route("/create/product/", name="create_static_product")
+     * @Route("/T51/product/create/", name="_t51_product_create_static")
      */
     public function createStaticAction()
     {
@@ -33,12 +40,13 @@ class ProductController extends Controller
     	$em->persist($product);
     	$em->flush();
     
-    	return $this->render('product/created.html.twig', array('product' => $product));    			
+    	return $this->render('T51/created.html.twig', array('product' => $product));    			
     }
     
     /**
-     * @Route("/create/product/{name}/{price}", name="create_product", requirements={
- 	 *     "name": "[A-Za-z]+",
+     * @Route("/T51/product/create/{name}/{price}", name="_t51_product_create",
+     *  requirements={
+ 	 *     "name": "[A-Za-z\s]+",
  	 *     "price" : "\d{2}(\.\d{2})?"
      * })
      */
@@ -61,11 +69,11 @@ class ProductController extends Controller
     
     	$em->flush();
     
-    	return $this->render('product/created.html.twig', array('product' => $product));    			
+    	return $this->render('T51/created.html.twig', array('product' => $product));    			
     }
     
     /**
-     * @Route("/show/product/{id}", name="show_product")
+     * @Route("/T51/product/show/{id}", name="_t51_product_show")
      */
     
     public function showAction($id)
@@ -75,31 +83,23 @@ class ProductController extends Controller
     	->find($id);
     
     	if (!$product) {
-    		throw $this->createNotFoundException(
-    				'No product found for id '.$id
-    				);
+    		return $this->render('T51/notFound.html.twig', array('id' => $id));   		
     	}
     
-    	return $this->render('product/show.html.twig', array('product' => $product));    			
+    	return $this->render('T51/show.html.twig', array('product' => $product));    			
     }
     
     /**
-     * @Route("/list/product/", name="list_product")
+     * @Route("/T51/product/list/", name="_t51_product_list")
      */
     
     public function listAction()
     {
     	$products = $this->getDoctrine()
     	->getRepository('AppBundle:Product')
-    	->findAll();
-    
-    	if (!$products) {
-    		throw $this->createNotFoundException(
-    				'No products found'
-    				);
-    	}
-    
-    	return $this->render('product/list.html.twig', array('products' => $products));
+    	->findAll();    
+    	    
+    	return $this->render('T51/list.html.twig', array('products' => $products));
     }
     
     

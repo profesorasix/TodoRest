@@ -1,9 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
-{% endblock %}
-
 {% block title %} Práctica T42 {% endblock %}
 
 {% block body %}
@@ -39,16 +35,13 @@
     <span class="label-body">Send a copy to yourself</span>
   </label>
   <input class="button-primary" value="Submit" type="submit">
-</form>
-
-	
+</form>	
 
 {% endif %}
 
-
 <ul>
-	<li><a href="{{ path('_welcome') }}">Home</a></li>
-	<li><a href=" {{ path('_about') }}">About</a></li>
-	<li><a href=" {{ path('_contact') }}">Contact</a></li>
+	<li><a href="{{ path('_t42_index') }}">Home</a></li>
+	<li><a href=" {{ path('_t42_about') }}">About</a></li>
+	<li><a href=" {{ path('_t42_contact') }}">Contact</a></li>
 </ul>
 {% endblock %}

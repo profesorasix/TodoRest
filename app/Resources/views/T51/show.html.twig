@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %} 
+
+{% block title %} Producto {{ product.name }} {% endblock %} 
+
+{% block body %}
+
+<h2>Producto {{ product.id }}</h2>
+
+<table>
+	<tr>
+		<th>Nombre</th>
+		<th>Descripción</th>
+		<th>Precio(€)</th>
+	</tr>
+	<tr>
+		<td>{{ product.name }}</td>
+		<td>{{ product.description }}</td>
+		<td>{{ product.price }}</td>
+	</tr>
+</table>
+
+<ul>
+	<li><a href="{{ path('_t51_index') }}">Índice actividad</a></li>
+</ul>
+
+
+{% endblock %}

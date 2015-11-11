@@ -1,9 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
-{% endblock %}
-
 {% block title %} Producto {{ product.name }} creado!! {% endblock %}
 
 {% block body %}
@@ -13,7 +9,7 @@ Producto <strong>{{ product.name }}</strong> con id : <strong> {{ product.id }}<
 </p>
  
 <ul>
-	<li><a href="{{ path('list_product') }}">Listado de productos</a></li>	
+	<li><a href="{{ path('_t51_index') }}">Índice actividad</a></li>	
 </ul>
         
 {% endblock %}

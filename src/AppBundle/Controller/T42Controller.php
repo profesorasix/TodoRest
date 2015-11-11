@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 class T42Controller extends Controller
 {
     /**
-     * @Route("/T42/", name="_welcome")
+     * @Route("/T42/", name="_t42_index")
      */
     public function indexAction(Request $request)
     {
@@ -20,7 +20,7 @@ class T42Controller extends Controller
     }
     
     /**
-     * @Route("/T42/about", name="_about")
+     * @Route("/T42/about", name="_t42_about")
      */
     public function aboutAction()
     {
@@ -29,7 +29,7 @@ class T42Controller extends Controller
     }
     
     /**
-     * @Route("/T42/contact", name="_contact")
+     * @Route("/T42/contact", name="_t42_contact")
      */
     public function contactAction()
     {

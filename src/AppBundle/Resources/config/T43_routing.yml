@@ -1,0 +1,33 @@
+_t43_index:
+  path: /
+  defaults: { _controller: AppBundle:T43:index }
+
+
+_t43_number:
+  path: /{number}
+  defaults: { _controller: AppBundle:T43:number }
+  methods: [GET]
+  requirements:
+    number: \d+
+    
+_t43_text:
+  path: /{text}
+  defaults: { _controller: AppBundle:T43:text }
+  methods: [GET]
+  requirements:
+    text: "[A-Za-z\s]+"     
+
+_t43_default:
+  path: /page/{page}
+  defaults: { _controller: AppBundle:T43:default, page = 1 }
+  methods: [GET]
+  requirements:
+    page: \d+     
+
+_t43_format:
+  path: /alumnos/{year}.{_format}
+  defaults: { _controller: AppBundle:T43:format }
+  methods: [GET]
+  requirements:
+    year: ^\+?\d{4}
+    _format: html|json 

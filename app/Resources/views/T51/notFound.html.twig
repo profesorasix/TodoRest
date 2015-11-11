@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} Producto {{ id }} No encontrado {% endblock %}
+
+{% block body %}
+
+<p>
+Producto <strong>{{ id }}</strong> no encontrado!!
+</p>
+ 
+<ul>
+	<li><a href="{{ path('_t51_index') }}">Índice actividad</a></li>	
+</ul>
+        
+{% endblock %}
