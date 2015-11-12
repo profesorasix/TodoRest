@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Listado de productos {%endblock %}
+{% block title %} Listado de productos {% endblock %}
 
 {% block body %}
 
@@ -8,21 +8,31 @@
 
 <table>
 	<tr>
+		<th>id</th>
 		<th>Nombre</th>
 		<th>Descripción</th>
 		<th>Precio(€)</th>
+		<th>Categoría</th>
+		<th>Eliminar</th>
 	</tr>
 	{% for product in products %}
 	<tr>
+		<td>{{ product.id }} </td>
 		<td>{{ product.name }}</td>
 		<td>{{ product.description }}</td>
 		<td>{{ product.price }}</td>
+		<td><a href="{{ path('_t52_product_list_category', {'name' : product.category }) }}">			
+			{{ product.category }}</a>
+		</td>
+		<td><a href="{{ path('_t51_product_delete', {'id' : product.id }) }}">
+			<i class="fa fa-times fa-lg"></i></a></td>
+		
 	</tr>
 	{% endfor %}
 </table>
 
 <ul>
-	<li><a href="{{ path('_t51_index') }}">Índice actividad</a></li>
+	<li><a href="{{ app.request.headers.get('referer') }}">Atrás</a></li>	
 </ul>
 
 

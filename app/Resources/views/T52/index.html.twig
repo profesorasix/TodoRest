@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Índice actividad {% endblock %}
+
+{% block body %}
+
+
+<ul>
+	<li><a href="{{ path('_t52_category_create', {
+							'name': 'Nombre Categoría'												  
+					})
+				 }}">Crear categoría</a></li>
+	<li><a href="{{ path('_t52_category_list') }}">Listado de categorías</a></li>		
+</ul>
+        
+{% endblock %}

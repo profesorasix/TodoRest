@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} Mensaje {% endblock %}
+
+{% block body %}
+
+<p>
+{{ message }}
+</p>
+ 
+<ul>
+	<li><a href="{{ app.request.headers.get('referer') }}">Atrás</a></li>	
+</ul>
+
+
+        
+{% endblock %}

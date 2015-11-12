@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Listado de productos por categorias {%endblock %}
+
+{% block body %}
+
+<h2>Listado de productos por categorías</h2>
+
+
+{% for category in categories %}
+<h4>{{ category.name }}</h4>
+<table>
+	<tr>
+		<th>id</th>
+		<th>Nombre</th>
+		<th>Descripción</th>
+		<th>Precio(€)</th>
+	</tr>
+	{% for product in category.products %}
+	<tr>
+		<td><a href="{{ path('_t51_product_delete', {'id' : product.id }) }}">
+			{{ product.id }}</a>
+		</td>
+		<td>{{ product.name }}</td>
+		<td>{{ product.description }}</td>
+		<td>{{ product.price }}</td>
+	</tr>
+	{% endfor %}		
+</table>
+{% endfor %}
+
+<ul>
+	<li><a href="{{ app.request.headers.get('referer') }}">Atrás</a></li>	
+</ul>
+
+
+{% endblock %}

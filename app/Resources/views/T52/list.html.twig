@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Listado de Categorías {%endblock %}
+
+{% block body %}
+
+<h2>Listado de Categorías</h2>
+
+<table>
+	<tr>
+		<th>id</th>
+		<th>Nombre</th>		
+	</tr>
+	{% for category in categories %}
+	<tr>
+		<td>{{ category.id }}</td>
+		<td><a href="{{ path('_t52_product_list_category', {'name' : category.name }) }}">			
+			{{ category.name }}</a>
+		</td>
+		<td><a href="{{ path('_t52_category_delete', {'id' : category.id }) }}">
+			<i class="fa fa-times fa-lg"></i></a>
+		</td>		
+	</tr>
+	{% endfor %}
+</table>
+
+<ul>
+	<li><a href="{{ app.request.headers.get('referer') }}">Atrás</a></li>	
+</ul>
+
+
+{% endblock %}
