@@ -17,15 +17,16 @@
 	</tr>
 	{% for product in products %}
 	<tr>
-		<td>{{ product.id }} </td>
+		<td><a href="{{ path('_t51_product_show', {'id' : product.id }) }}">
+			{{ product.id }}</a></td>
 		<td>{{ product.name }}</td>
 		<td>{{ product.description }}</td>
-		<td>{{ product.price }}</td>
+		<td>{{ product.price | localizedcurrency('EUR') }}</td>
 		<td><a href="{{ path('_t52_product_list_category', {'name' : product.category }) }}">			
 			{{ product.category }}</a>
 		</td>
 		<td><a href="{{ path('_t51_product_delete', {'id' : product.id }) }}">
-			<i class="fa fa-times fa-lg"></i></a></td>
+			<i class="fa fa-trash fa-lg"></i></a></td>
 		
 	</tr>
 	{% endfor %}

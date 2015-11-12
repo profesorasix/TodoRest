@@ -7,16 +7,21 @@
 <h2>Producto {{ product.id }}</h2>
 
 <table>
-	<tr>
-		<th>Nombre</th>
-		<th>Descripción</th>
-		<th>Precio(€)</th>
+<tbody>
+	<tr><td>Nombre</td><td>{{ product.name }}</td></tr>
+	<tr><td>Descripción</td><td>{{ product.description }}</td></tr>
+	<tr><td>Precio</td><td>{{ product.price | localizedcurrency('EUR') }}</td></tr>
+	<tr><td>Miniatura</td><td>{{ product.name }}</td></tr>
+		
 	</tr>
 	<tr>
-		<td>{{ product.name }}</td>
+		
 		<td>{{ product.description }}</td>
 		<td>{{ product.price }}</td>
+		<td><i class="fa fa-bug fa-3x"></i></td>
+		
 	</tr>
+</tbody>
 </table>
 
 <ul>
