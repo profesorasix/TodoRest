@@ -8,19 +8,10 @@
 
 <table>
 <tbody>
-	<tr><td>Nombre</td><td>{{ product.name }}</td></tr>
-	<tr><td>Descripción</td><td>{{ product.description }}</td></tr>
-	<tr><td>Precio</td><td>{{ product.price | localizedcurrency('EUR') }}</td></tr>
-	<tr><td>Miniatura</td><td>{{ product.name }}</td></tr>
-		
-	</tr>
-	<tr>
-		
-		<td>{{ product.description }}</td>
-		<td>{{ product.price }}</td>
-		<td><i class="fa fa-bug fa-3x"></i></td>
-		
-	</tr>
+	<tr><td><strong>Nombre</strong></td><td>{{ product.name }}</td></tr>
+	<tr><td><strong>Descripción</strong></td><td>{{ product.description }}</td></tr>
+	<tr><td><strong>Precio</strong></td><td>{{ product.price | localizedcurrency('EUR') }}</td></tr>
+	<tr><td><strong>Imagen</strong></td><td><i class="fa fa-bug fa-3x"></i></td></tr>		
 </tbody>
 </table>
 

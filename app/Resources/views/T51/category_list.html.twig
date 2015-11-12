@@ -23,7 +23,7 @@
 		</td>
 		<td>{{ product.name }}</td>
 		<td>{{ product.description }}</td>
-		<td>{{ product.price }}</td>
+		<td>{{ product.price | localizedcurrency('EUR') }}</td>
 	</tr>
 	{% endfor %}		
 </table>
