@@ -147,7 +147,7 @@ class ProductController extends Controller
     	$em->remove($product);
     	$em->flush();
     
-    	return $this->redirectToRoute('_t52_product_list');
+    	return $this->redirectToRoute('_t51_product_list');
     }
     
     /**
