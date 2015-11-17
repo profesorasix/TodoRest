@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class T44Controller extends Controller
 {	
-	public function indexAction($page_name)
+	public function indexAction()
 	{
 		return $this->render(sprintf('T44/index.html.twig'));
 	}

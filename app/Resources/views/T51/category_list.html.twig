@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Listado de productos por categorias {%endblock %}
+{% block title %} Listado de productos por categorias {% endblock %}
 
 {% block body %}
 
@@ -18,7 +18,7 @@
 	</tr>
 	{% for product in category.products %}
 	<tr>
-		<td><a href="{{ path('_t51_product_delete', {'id' : product.id }) }}">
+		<td><a href="{{ path('_t51_product_show', {'id' : product.id }) }}">
 			{{ product.id }}</a>
 		</td>
 		<td>{{ product.name }}</td>

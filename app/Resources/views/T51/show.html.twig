@@ -11,7 +11,7 @@
 	<tr><td><strong>Nombre</strong></td><td>{{ product.name }}</td></tr>
 	<tr><td><strong>Descripción</strong></td><td>{{ product.description }}</td></tr>
 	<tr><td><strong>Precio</strong></td><td>{{ product.price | localizedcurrency('EUR') }}</td></tr>
-	<tr><td><strong>Imagen</strong></td><td><i class="fa fa-bug fa-3x"></i></td></tr>		
+	<tr><td><strong>Imagen</strong></td><td><img src="holder.js/200x200" alt="Image placeholder" /></td></tr>		
 </tbody>
 </table>
 
@@ -19,5 +19,8 @@
 	<li><a href="{{ app.request.headers.get('referer') }}">Atrás</a></li>	
 </ul>
 
+{% endblock %}
 
+{% block javascripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.0/holder.min.js"></script>
 {% endblock %}
