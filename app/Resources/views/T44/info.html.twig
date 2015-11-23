@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Práctica T44. Info {% endblock %}
+
+{% block body %}
+
+<h2>Página de Información</h2>
+
+<ul>
+<li><strong>Controlador:</strong> {{ app.request.attributes.get('_controller') }} </li>
+<li><strong>parámetro:</strong>{{ app.request.attributes.get('page_name') }}</li>
+    
+</ul>
+
+        
+{% endblock %}

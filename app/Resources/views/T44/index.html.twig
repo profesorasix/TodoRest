@@ -1,20 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
-{% endblock %}
 
-{% block title %} Práctica T43 {% endblock %}
+{% block title %} Práctica T44 {% endblock %}
 
 {% block body %}
 
  <ul>
-{% for user in users %}
-	<li>Nombre: {{ user.username }}</li>
-	<li>Teléfono: {{ user.tel }}</li>
-	<li>Edad: {{ user.edad }}</li>	
-	<hr>
-{% endfor %}
+	<li><a href="{{ path('_t44_static', {'page_name': 'info'}) }}">Página de información</a></li>
+	<li><a href="{{ path('_t44_static', {'page_name': 'contact'}) }}">Página de contacto</a></li>
+	<li><a href="{{ path('_t44_static', {'page_name': 'about'}) }}">Página about</a></li>
  </ul>
  
  
