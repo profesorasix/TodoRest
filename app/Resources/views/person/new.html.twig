@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %} 
+
+{% block title %} Person {% endblock %} 
+
+{% block body %}
+
+<h2>Person</h2>
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+
+<ul>
+	<li><a href="{{ app.request.headers.get('referer') }}">Atrás</a></li>	
+</ul>
+
+{% endblock %}

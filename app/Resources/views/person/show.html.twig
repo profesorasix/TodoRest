@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %} 
+
+{% block title %} Person {{ person.name }} {% endblock %} 
+
+{% block body %}
+
+<h2>Person {{ person.name }}</h2>
+
+<table>
+<tbody>
+	<tr><td><strong>Id</strong></td><td>{{ person.id }}</td></tr>
+	<tr><td><strong>Nombre</strong></td><td>{{ person.name }}</td></tr>
+	<tr><td><strong>Edad</strong></td><td>{{ person.age }}</td></tr>
+	<tr><td><strong>Fecha Nac.</strong></td><td>{{ person.birthDate|date("d/m/Y")}}</td></tr>
+	<tr><td><strong>Altura</strong></td><td>{{ person.height }}</td></tr>
+	<tr><td><i class="fa fa-envelope fa-2x"></i></td><td>{{ person.email }}</td></tr>
+	<tr><td><i class="fa fa-phone-square fa-2x"></i></td><td>{{ person.phone }}</td></tr>
+	<tr><td><strong>Sexo</strong></td><td>{{ person.gender }}</td></tr>
+	<tr><td><strong>Descendientes</strong></td><td>{{ person.descends }}</td></tr>
+	<tr><td><strong>Vehiculo</strong></td><td>{{ person.vehicle }}</td></tr>
+	<tr><td><strong>Idioma</strong></td><td>{{ person.preferredLanguage }}</td></tr>
+	<tr><td><strong>Nivel de inglés</strong></td><td>{{ person.englishLevel }}</td></tr>
+	<tr><td><strong>WebSite</strong></td><td>{{ person.personalWebSite }}</td></tr>
+	<tr><td><strong>Número de tarjeta</strong></td><td>{{ person.cardNumber }}</td></tr>
+	<tr><td><strong>Número de cuenta bancaria(IBAN)</strong></td><td>{{ person.IBAN }}</td></tr>
+	
+	
+	<tr><td><strong>Imagen</strong></td><td><img src="holder.js/200x200" alt="Image placeholder" /></td></tr>		
+</tbody>
+</table>
+
+<ul>
+	<li><a href="{{ app.request.headers.get('referer') }}">Atrás</a></li>	
+</ul>
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.0/holder.min.js"></script>
+{% endblock %}

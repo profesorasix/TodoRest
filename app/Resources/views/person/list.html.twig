@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Listado de productos {% endblock %}
+
+{% block body %}
+
+<h2>Listado de productos</h2>
+
+<table>
+	<tr>
+		<th>id</th>
+		<th>Nombre</th>		
+		<th>Eliminar</th>
+	</tr>
+	{% for person in persons %}
+	<tr>
+		<td><a href="{{ path('_t62_person_show', {'id' : person.id }) }}">
+			{{ person.id }}</a></td>
+		<td>{{ person.name }}</td>
+		
+		<td><a href="{{ path('_t62_person_delete', {'id' : person.id }) }}">
+			<i class="fa fa-trash fa-lg"></i></a></td>
+		
+	</tr>
+	{% endfor %}
+</table>
+
+<ul>
+	<li><a href="{{ app.request.headers.get('referer') }}">Atrás</a></li>	
+</ul>
+
+
+{% endblock %}

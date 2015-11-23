@@ -13,14 +13,14 @@ use AppBundle\Entity\Category;
 class CategoryController extends Controller
 {
 	/**
-	 * @Route("/T52/", name="_t52_index")
+	 * @Route("/category/", name="_t52_index")
 	 */
 	public function indexAction() {
-		return $this->render('T52/index.html.twig');
+		return $this->render('category/index.html.twig');
 	}
 	
     /**
-     * @Route("/T52/category/create/{name}", name="_t52_category_create")
+     * @Route("/category/create/{name}", name="_t52_category_create")
      *  requirements={
  	 *     "name": "[A-Za-z0-9\s-]+",
      */
@@ -45,7 +45,7 @@ class CategoryController extends Controller
     
     
     /**
-     * @Route("/T52/category/list", name="_t52_category_list")
+     * @Route("/category/list", name="_t52_category_list")
      */
         
     public function listAction()
@@ -54,11 +54,11 @@ class CategoryController extends Controller
     	->getRepository('AppBundle:Category')
     	->findAll();    
     	    
-    	return $this->render('T52/list.html.twig', array('categories' => $categories));
+    	return $this->render('category/list.html.twig', array('categories' => $categories));
     }
     
     /**
-     * @Route("/T52/category/delete/{id}", name="_t52_category_delete")
+     * @Route("/category/delete/{id}", name="_t52_category_delete")
      */
     
     public function deleteAction($id)
@@ -73,6 +73,40 @@ class CategoryController extends Controller
     	$em->flush();
     		
     	return $this->redirectToRoute('_t52_category_list');
-    }    
+    }
+    
+    /**
+     * @Route("/category/new/", name="_t61_category_new")
+     */
+    public function newProductAction(Request $request) {
+    
+    	$em = $this->getDoctrine ()->getManager ();
+    
+    	$category = new Category();
+    
+    	$form = $this->createFormBuilder ($category)
+    	->add ( 'name', 'text' )    	
+    	->add ( 'save', 'submit', array ('label' => 'Save'))
+    	->add('saveAndAdd', 'submit', array('label' => 'Save and add'))
+    	->getForm ();
+    
+    	$form->handleRequest ( $request );
+    
+    	if ($form->isValid ()) {
+    			
+    		$em->persist($category);
+    		$em->flush();
+    			
+    			
+    		return $form->get('saveAndAdd')->isClicked()
+    			? $this->redirectToRoute('_t61_category_new',array(),301)
+    			: $this->redirectToRoute('_t52_category_list',array(),301);   			
+    		
+    	}
+    
+    	return $this->render ('category/new.html.twig', array (
+    			'form' => $form->createView ()
+    	) );
+    }
     
 }
