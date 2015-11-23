@@ -10,7 +10,7 @@ use AppBundle\Entity\Person;
 
 class PersonController extends Controller {
 	/**
-	 * @Route("/person", name="_t62_person")
+	 * @Route("/person", name="_t62_index")
 	 */
 	public function indexAction() {
 		return $this->render ( 'person/index.html.twig' );
@@ -26,7 +26,7 @@ class PersonController extends Controller {
 		
 		if (! $person) {
 			return $this->render ( 'dws/message.html.twig', array (
-					'message' => sprintf ( "Producto id: %d, no encontrado", $id ) 
+					'message' => sprintf ( "Persona id: %d, no encontrado", $id ) 
 			) );
 		}
 		
