@@ -45,4 +45,12 @@ class LoadCategoryData extends AbstractFixture implements OrderedFixtureInterfac
     	// the lower the number, the sooner that this fixture is loaded
     	return 1;
     }
+    
+    /**
+     * @override
+     */
+    public function getEnvironments()
+    {
+    	return array('prod','dev','test');
+    }
 }

@@ -51,4 +51,12 @@ class LoadProductData extends AbstractFixture implements OrderedFixtureInterface
     	// the lower the number, the sooner that this fixture is loaded
     	return 2;
     }
+    
+    /**
+     * @override
+     */
+    public function getEnvironments()
+    {
+    	return array('prod','dev','test');
+    }
 }
