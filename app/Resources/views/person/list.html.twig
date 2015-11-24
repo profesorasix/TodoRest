@@ -1,27 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Listado de productos {% endblock %}
+{% block title %} Listado de personas {% endblock %}
 
 {% block body %}
 
-<h2>Listado de productos</h2>
+<h2>Listado de personas</h2>
 
 <table>
-	<tr>
-		<th>id</th>
-		<th>Nombre</th>		
-		<th>Eliminar</th>
-	</tr>
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>Nombre</th>	
+			<th>Email</th>	
+			<th>Eliminar</th>
+		</tr>
+	</thead>
 	{% for person in persons %}
-	<tr>
-		<td><a href="{{ path('_t62_person_show', {'id' : person.id }) }}">
-			{{ person.id }}</a></td>
-		<td>{{ person.name }}</td>
-		
-		<td><a href="{{ path('_t62_person_delete', {'id' : person.id }) }}">
-			<i class="fa fa-trash fa-lg"></i></a></td>
-		
-	</tr>
+	<tbody>
+		<tr>
+			<td><a href="{{ path('_t62_person_show', {'id' : person.id }) }}">
+				{{ person.id }}</a></td>
+			<td>{{ person.name }}</td>
+			<td>{{ person.email }}</td>
+			
+			<td><a href="{{ path('_t62_person_delete', {'id' : person.id }) }}">
+				<i class="fa fa-trash fa-lg"></i></a></td>
+			
+		</tr>
+	</tbody>
 	{% endfor %}
 </table>
 

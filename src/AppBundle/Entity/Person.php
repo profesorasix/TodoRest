@@ -90,7 +90,7 @@ class Person
     protected $descends;
     
     /**
-     * @ORM\Column(type="string", nullable=true)     
+     * @ORM\Column(type="boolean", nullable=true)     
      */
     protected $vehicle;
     
@@ -337,7 +337,7 @@ class Person
     /**
      * Set vehicle
      *
-     * @param string $vehicle
+     * @param boolean $vehicle
      *
      * @return Person
      */
@@ -347,7 +347,7 @@ class Person
 
         return $this;
     }
-
+    
     /**
      * Get vehicle
      *
@@ -355,7 +355,17 @@ class Person
      */
     public function getVehicle()
     {
-        return $this->vehicle;
+    	return $this->vehicle == true ? 'Si' : 'No';
+    }
+
+    /**
+     * Has vehicle
+     *
+     * @return boolean
+     */
+    public function hasVehicle()
+    {
+    	return $this->vehicle;
     }
 
     /**
