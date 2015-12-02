@@ -355,7 +355,8 @@ class Person
      */
     public function getVehicle()
     {
-    	return $this->vehicle == true ? 'Si' : 'No';
+    	//return $this->vehicle == true ? 'Si' : 'No';
+    	return $this->vehicle;    	
     }
 
     /**
