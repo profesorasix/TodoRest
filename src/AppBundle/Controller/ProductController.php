@@ -8,16 +8,21 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Product;
 use AppBundle\Entity\Category;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+
+
 
 class ProductController extends Controller {
-	/**
+	
+	/** 	 
 	 * @Route("/product", name="_t51_index")
 	 */
 	public function indexAction() {
 		return $this->render ( 'product/index.html.twig' );
 	}
 	
-	/**
+	/**	 
 	 * @Route("/product/create/", name="_t51_product_create_static")
 	 */
 	public function createStaticAction() {
@@ -48,7 +53,7 @@ class ProductController extends Controller {
 		) );
 	}
 	
-	/**
+	/**	 
 	 * @Route("/product/create/{name}/{price}", name="_t51_product_create",
 	 * requirements={
 	 * "name": "[A-Za-z0-9\s-]+",
@@ -84,8 +89,10 @@ class ProductController extends Controller {
 		) );
 	}
 	
-	/**
-	 * @Route("/product/show/{id}", name="_t51_product_show")
+	/**	
+	 * @ApiDoc() 
+	 * @Route("/product/get/{id}", name="_t51_product_show")
+	 * @Method("GET")
 	 */
 	public function showAction($id) {
 		$product = $this->getDoctrine ()->getRepository ( 'AppBundle:Product' )->find ( $id );
@@ -102,8 +109,10 @@ class ProductController extends Controller {
 	}
 	
 		
-	/**
+	/**	 
+ 	 * @ApiDoc() 
 	 * @Route("/product/delete/{id}", name="_t51_product_delete")
+	 * @Method("DELETE")
 	 */
 	public function deleteAction($id) {
 		$product = $this->getDoctrine ()->getRepository ( 'AppBundle:Product' )->find ( $id );
@@ -114,6 +123,30 @@ class ProductController extends Controller {
 		$em->flush ();
 		
 		return $this->redirectToRoute ( '_t51_product_list' );
+	}	
+	
+	
+	/**
+	 * @ApiDoc()
+	 * @Route("/product/list/category/all.{_format}", name="_t52_product_list_category_all",
+	 *     defaults={"_format": "html"},
+	 *     requirements={
+	 * 	        "_format": "html|xml|json",
+	 * })
+	 * @Method("GET")
+	 */
+	
+	public function listAllByCategoryAction($_format) {
+		$categories = $this->getDoctrine()->getRepository('AppBundle:Category' )->findAll();
+		
+		if ($_format == 'json' || $_format == 'xml') {
+			$serialized = $this->get('jms_serializer')->serialize($categories,$_format);		
+			return new Response($serialized);
+		} else {		
+			return $this->render ( 'product/category_list.html.twig', array (
+					'categories' => $categories 
+			));
+		}
 	}
 	
 	/**
@@ -121,39 +154,41 @@ class ProductController extends Controller {
 	 */
 	public function listByCategoryAction($name) {
 		$categories = $this->getDoctrine ()->getRepository ( 'AppBundle:Category' )->findByName ( $name );
-		
-		return $this->render ( 'product/category_list.html.twig', array (
-				'categories' => $categories 
-		) );
-	}
 	
-	
-	/**
-	 * @Route("/product/list/category/", name="_t52_product_list_category_all")
-	 */
-	public function listAllByCategoryAction() {
-		$categories = $this->getDoctrine ()->getRepository ( 'AppBundle:Category' )->findAll ();
-		
 		return $this->render ( 'product/category_list.html.twig', array (
-				'categories' => $categories 
+				'categories' => $categories
 		) );
 	}
 	
 	/**
-	 * @Route("/product/list", name="_t51_product_list")
+	 * @ApiDoc() 
+	 * @Route("/product/list.{_format}", name="_t51_product_list",
+	 *     defaults={"_format": "html"},
+	 *     requirements={	 
+	 * 	        "_format": "html|xml|json",
+	 * })	
+	 * @Method("GET") 
 	 */
-	public function listAction() {
+	public function listAction($_format) {
 		$products = $this->getDoctrine ()->getRepository ( 'AppBundle:Product' )->findAll ();
+		
+		if ($_format == 'json' || $_format == 'xml') {
+			$serialized = $this->get('jms_serializer')->serialize($products,$_format);
+			return new Response($serialized);
+		} else {
+			return $this->render ( 'product/list.html.twig', array (
+					'products' => $products
+			) );
+			
+		}
 	
-		return $this->render ( 'product/list.html.twig', array (
-				'products' => $products
-		) );
+		
 	}
 	
-	/**
+	/**	 
 	 * @Route("/product/new/", name="_t61_product_new")
 	 */
-	public function newProductAction(Request $request) {
+	public function newAction(Request $request) {
 		
 		$em = $this->getDoctrine ()->getManager ();
 		

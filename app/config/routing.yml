@@ -1,5 +1,5 @@
 app:
-    resource: "@AppBundle/Controller/"
+    resource: "@AppBundle/Controller"
     type:     annotation
  
 T43_yml:
@@ -8,4 +8,15 @@ T43_yml:
     
 T44_yml:
     resource: "@AppBundle/Resources/config/T44_routing.yml"
-    prefix:   /T44    
+    prefix:   /T44   
+    
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
+    
+todo:
+    resource: AppBundle/Controller/TodoController
+    type: rest
+    prefix:   /todo  
+    
+      
