@@ -23,7 +23,8 @@
 		"twig/extensions": "^1.3",
 		"doctrine/doctrine-fixtures-bundle": "^2.3",
 		"nelmio/api-doc-bundle": "^2.10",
-		"jms/serializer-bundle": "^1.1"
+		"jms/serializer-bundle": "^1.1",
+		"friendsofsymfony/rest-bundle": "~2.0-dev"
 	
 	},
 	"require-dev" : {

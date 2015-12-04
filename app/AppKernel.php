@@ -20,7 +20,8 @@ class AppKernel extends Kernel
             new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),       	
         	new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
-        	new JMS\SerializerBundle\JMSSerializerBundle()
+        	new JMS\SerializerBundle\JMSSerializerBundle(),
+        	new FOS\RestBundle\FOSRestBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

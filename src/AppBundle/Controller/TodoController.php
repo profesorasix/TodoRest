@@ -11,7 +11,7 @@ use FOS\RestBundle\Controller\Annotations\RouteResource;
 use FOS\RestBundle\View\View;
 
 /**
- * @RouteResource("todo", pluralize="false")
+ * @RouteResource("todo", pluralize=false)
  */
 
 class TodoController extends FOSRestController
@@ -20,7 +20,7 @@ class TodoController extends FOSRestController
 	/*
 	 * ApiDoc()
 	 */
-	public function cgetAction()
+	public function getAction()
 	{
 		$todos = $this->getDoctrine()->getRepository('AppBundle:Todo')->findAll();
 					

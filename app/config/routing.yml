@@ -15,8 +15,8 @@ NelmioApiDocBundle:
     prefix:   /api/doc
     
 todo:
-    resource: AppBundle/Controller/TodoController
+    resource: AppBundle\Controller\TodoController
     type: rest
-    prefix:   /todo  
+    prefix:   /api/v1/  
     
       
