@@ -113,7 +113,7 @@ class ProductController extends Controller {
 	/**	 
  	 * @ApiDoc() 
 	 * @Route("/product/delete/{id}", name="_t51_product_delete")
-	 * @Method("DELETE")
+	 *  
 	 */
 	public function deleteAction($id) {
 		$product = $this->getDoctrine ()->getRepository ( 'AppBundle:Product' )->find ( $id );
