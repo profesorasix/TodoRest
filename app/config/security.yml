@@ -5,20 +5,52 @@ security:
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         in_memory:
-            memory: ~
+            memory:
+                users:
+                    dws:
+                        password: dws
+                        roles: 'ROLE_USER'
+                    admin:
+                        password: admin
+                        roles: 'ROLE_APP_ADMIN'
 
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+        
+        
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        main:
+        app_secured_area:
             anonymous: ~
+            http_basic: ~
+            
+            logout:
+                path:   /logout
+                target: /  
+        
             # activate different ways to authenticate
 
             # http_basic: ~
             # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
 
             # form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html     
+        
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+    access_control:
+    # require ROLE_ADMIN for /admin*
+        - { path: ^/product/list, roles: [ROLE_APP_ADMIN,ROLE_USER] }
+        - { path: ^/product/delete, roles: [ROLE_APP_ADMIN] }
+        - { path: ^/product/new, roles: [ROLE_USER] }
+        - { path: ^/product/edit, roles: [ROLE_APP_ADMIN] }
+        - { path: ^/product/show, roles: [ROLE_USER] }                
+        - { path: ^/category/list, roles: [ROLE_APP_ADMIN,ROLE_USER] }
+        - { path: ^/category/delete, roles: [ROLE_APP_ADMIN] }
+        - { path: ^/category/new, roles: [ROLE_USER] }
+        - { path: ^/category/edit, roles: [ROLE_APP_ADMIN] }
+        - { path: ^/category/show, roles: [ROLE_USER] }

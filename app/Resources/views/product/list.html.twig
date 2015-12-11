@@ -13,7 +13,10 @@
 		<th>Descripción</th>
 		<th>Precio(€)</th>
 		<th>Categoría</th>
+		{% if is_granted('ROLE_APP_ADMIN') %}
+		<th>Editar</th>
 		<th>Eliminar</th>
+		{% endif %}
 	</tr>
 	{% for product in products %}
 	<tr>
@@ -25,8 +28,12 @@
 		<td><a href="{{ path('_t52_product_list_category', {'name' : product.category }) }}">			
 			{{ product.category }}</a>
 		</td>
+		{% if is_granted('ROLE_APP_ADMIN') %}
+		<td><a href="{{ path('_product_edit', {'id' : product.id }) }}">
+			<i class="fa fa-pencil-square-o"></i></a></td>
 		<td><a href="{{ path('_t51_product_delete', {'id' : product.id }) }}">
 			<i class="fa fa-trash fa-lg"></i></a></td>
+	    {% endif %}
 		
 	</tr>
 	{% endfor %}

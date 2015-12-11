@@ -9,7 +9,12 @@
 <table>
 	<tr>
 		<th>id</th>
-		<th>Nombre</th>		
+		<th>Nombre</th>
+		{% if is_granted('ROLE_APP_ADMIN') %}
+		<th>Editar</th>
+		<th>Borrar</th>
+		{% endif %}	
+			
 	</tr>
 	{% for category in categories %}
 	<tr>
@@ -17,9 +22,13 @@
 		<td><a href="{{ path('_t52_product_list_category', {'name' : category.name }) }}">			
 			{{ category.name }}</a>
 		</td>
+		{% if is_granted('ROLE_APP_ADMIN') %}
+		<td><a href="{{ path('_category_edit', {'id' : category.id }) }}">
+			<i class="fa fa-pencil-square-o"></i></a></td>
 		<td><a href="{{ path('_t52_category_delete', {'id' : category.id }) }}">
 			<i class="fa fa-trash fa-lg"></i></a>
-		</td>		
+		</td>
+		{% endif %}		
 	</tr>
 	{% endfor %}
 </table>
