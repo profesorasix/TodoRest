@@ -10,6 +10,7 @@ use AppBundle\Entity\Product;
 use AppBundle\Entity\Category;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 
 
@@ -167,10 +168,11 @@ class ProductController extends Controller {
 	 *     requirements={	 
 	 * 	        "_format": "html|xml|json",
 	 * })	
-	 * @Method("GET") 
+	 * @Method("GET")	 
 	 */
 	public function listAction($_format) {
-		$products = $this->getDoctrine ()->getRepository ( 'AppBundle:Product' )->findAll ();
+		$products = $this->getDoctrine ()->getRepository( 'AppBundle:Product' )
+			->findBy(array(),array('id' => 'ASC'));
 		
 		if ($_format == 'json' || $_format == 'xml') {
 			$serialized = $this->get('jms_serializer')->serialize($products,$_format);
@@ -224,6 +226,44 @@ class ProductController extends Controller {
 		
 		return $this->render ( 'product/new.html.twig', array (
 				'form' => $form->createView () 
+		) );
+	}
+	
+	/**
+	 * @Route("/product/edit/{id}", name="_product_edit")
+	 */
+	public function editAction($id, Request $request) {
+		
+		$em = $this->getDoctrine()->getManager();
+	
+		$product = $em->getRepository('AppBundle:Product')->find($id);
+	
+		$form = $this->createFormBuilder ($product)
+		->add ( 'name', 'text' )
+		->add ( 'description', 'text', array('required' => false) )
+		->add ( 'price', 'money', array(
+				'invalid_message' => 'Formato de moneda incorrecto'
+		))
+		->add ('category', 'entity', array(
+				'class' => 'AppBundle:Category',
+				'choice_label' => 'name'
+		))
+		->add ( 'save', 'submit', array ('label' => 'Save'))		
+		->getForm ();
+	
+		$form->handleRequest ( $request );
+	
+		if ($form->isValid ()) {
+				
+			$em->persist($product);
+			$em->flush();		
+			
+			return $this->redirectToRoute('_t51_product_list',array(),301);
+	
+		}
+	
+		return $this->render ( 'product/new.html.twig', array (
+				'form' => $form->createView ()
 		) );
 	}
 }

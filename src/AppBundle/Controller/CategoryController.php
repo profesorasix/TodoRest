@@ -50,7 +50,8 @@ class CategoryController extends Controller
     {
     	$categories = $this->getDoctrine()
     	->getRepository('AppBundle:Category')
-    	->findAll();    
+    	->findBy(array(),array('id' => 'ASC'));
+    	    
     	    
     	return $this->render('category/list.html.twig', array('categories' => $categories));
     }
@@ -100,6 +101,36 @@ class CategoryController extends Controller
     			? $this->redirectToRoute('_t61_category_new',array(),301)
     			: $this->redirectToRoute('_t52_category_list',array(),301);   			
     		
+    	}
+    
+    	return $this->render ('category/new.html.twig', array (
+    			'form' => $form->createView ()
+    	) );
+    }
+    
+    /**
+     * @Route("/category/edit/{id}", name="_category_edit")
+     */
+    public function editAction($id, Request $request) {
+    
+    	$em = $this->getDoctrine ()->getManager ();
+    	
+    	$category = $em->getRepository('AppBundle:Category')->find($id);  
+    	
+    
+    	$form = $this->createFormBuilder ($category)
+    	->add ( 'name', 'text' )
+    	->add ( 'save', 'submit', array ('label' => 'Save'))    	
+    	->getForm ();
+    
+    	$form->handleRequest ( $request );
+    
+    	if ($form->isValid ()) {
+    		 
+    		$em->persist($category);
+    		$em->flush();    		 
+    		 
+    		return $this->redirectToRoute('_t52_category_list',array(),301);    
     	}
     
     	return $this->render ('category/new.html.twig', array (
