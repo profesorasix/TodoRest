@@ -21,7 +21,8 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),       	
         	new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
         	new JMS\SerializerBundle\JMSSerializerBundle(),
-        	new FOS\RestBundle\FOSRestBundle()
+        	new FOS\RestBundle\FOSRestBundle(),
+        	new FOS\UserBundle\FOSUserBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

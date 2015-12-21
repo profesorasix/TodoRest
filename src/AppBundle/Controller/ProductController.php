@@ -17,14 +17,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 class ProductController extends Controller {
 	
 	/** 	 
-	 * @Route("/product", name="_t51_index")
+	 * @Route("/product", name="product_index")
 	 */
 	public function indexAction() {
 		return $this->render ( 'product/index.html.twig' );
 	}
 	
 	/**	 
-	 * @Route("/product/create/", name="_t51_product_create_static")
+	 * @Route("/product/create/", name="product_create_static")
 	 */
 	public function createStaticAction() {
 		$em = $this->getDoctrine ()->getManager ();
@@ -55,7 +55,7 @@ class ProductController extends Controller {
 	}
 	
 	/**	 
-	 * @Route("/product/create/{name}/{price}", name="_t51_product_create",
+	 * @Route("/product/create/{name}/{price}", name="product_create",
 	 * requirements={
 	 * "name": "[A-Za-z0-9\s-]+",
 	 * "price" : "\d{2}(\.\d{2})?"
@@ -92,7 +92,7 @@ class ProductController extends Controller {
 	
 	/**	
 	 * @ApiDoc() 
-	 * @Route("/product/get/{id}", name="_t51_product_show")
+	 * @Route("/product/get/{id}", name="product_show")
 	 * @Method("GET")
 	 */
 	public function showAction($id) {
@@ -112,7 +112,7 @@ class ProductController extends Controller {
 		
 	/**	 
  	 * @ApiDoc() 
-	 * @Route("/product/delete/{id}", name="_t51_product_delete")
+	 * @Route("/product/delete/{id}", name="product_delete")
 	 *  
 	 */
 	public function deleteAction($id) {
@@ -123,13 +123,13 @@ class ProductController extends Controller {
 		$em->remove ( $product );
 		$em->flush ();
 		
-		return $this->redirectToRoute ( '_t51_product_list' );
+		return $this->redirectToRoute ( 'product_list' );
 	}	
 	
 	
 	/**
 	 * @ApiDoc()
-	 * @Route("/product/list/category/all.{_format}", name="_t52_product_list_category_all",
+	 * @Route("/product/list/category/all.{_format}", name="product_list_category_all",
 	 *     defaults={"_format": "html"},
 	 *     requirements={
 	 * 	        "_format": "html|xml|json",
@@ -151,7 +151,7 @@ class ProductController extends Controller {
 	}
 	
 	/**
-	 * @Route("/product/list/category/{name}", name="_t52_product_list_category")
+	 * @Route("/product/list/category/{name}", name="product_list_category")
 	 */
 	public function listByCategoryAction($name) {
 		$categories = $this->getDoctrine ()->getRepository ( 'AppBundle:Category' )->findByName ( $name );
@@ -163,7 +163,7 @@ class ProductController extends Controller {
 	
 	/**
 	 * @ApiDoc() 
-	 * @Route("/product/list.{_format}", name="_t51_product_list",
+	 * @Route("/product/list.{_format}", name="product_list",
 	 *     defaults={"_format": "html"},
 	 *     requirements={	 
 	 * 	        "_format": "html|xml|json",
@@ -188,7 +188,7 @@ class ProductController extends Controller {
 	}
 	
 	/**	 
-	 * @Route("/product/new/", name="_t61_product_new")
+	 * @Route("/product/new/", name="product_new")
 	 */
 	public function newAction(Request $request) {
 		
@@ -219,8 +219,8 @@ class ProductController extends Controller {
 			
 			
 			return $form->get('saveAndAdd')->isClicked()
-        		? $this->redirectToRoute('_t61_product_new',array(),301)
-        		: $this->redirectToRoute('_t51_product_list',array(),301);   			
+        		? $this->redirectToRoute('product_new',array(),301)
+        		: $this->redirectToRoute('product_list',array(),301);   			
         				
 		}
 		
@@ -230,7 +230,7 @@ class ProductController extends Controller {
 	}
 	
 	/**
-	 * @Route("/product/edit/{id}", name="_product_edit")
+	 * @Route("/product/edit/{id}", name="product_edit")
 	 */
 	public function editAction($id, Request $request) {
 		
@@ -258,7 +258,7 @@ class ProductController extends Controller {
 			$em->persist($product);
 			$em->flush();		
 			
-			return $this->redirectToRoute('_t51_product_list',array(),301);
+			return $this->redirectToRoute('product_list',array(),301);
 	
 		}
 	

@@ -6,15 +6,15 @@
 
 
 <ul>
-	<li><a href="{{ path('_t61_product_new') }}">Nuevo producto (formulario)</a></li>
-	<li><a href="{{ path('_t51_product_create_static') }}">Crear producto stático</a></li>
-	<li><a href="{{ path('_t51_product_create', {
+	<li><a href="{{ path('product_new') }}">Nuevo producto (formulario)</a></li>
+	<li><a href="{{ path('product_create_static') }}">Crear producto stático</a></li>
+	<li><a href="{{ path('product_create', {
 							'name': 'Aqui mi nombre de producto',
 							'price': '00.00'					  
 					})
 				 }}">Crear producto parametrizado</a></li>
-	<li><a href="{{ path('_t51_product_show', {'id':'1'}) }}">Muestra producto indicado por parámetro id</a></li>
-	<li><a href="{{ path('_t51_product_list') }}">Lista de productos</a></li>
+	<li><a href="{{ path('product_show', {'id':'1'}) }}">Muestra producto indicado por parámetro id</a></li>
+	<li><a href="{{ path('product_list') }}">Lista de productos</a></li>
 		
 </ul>
         

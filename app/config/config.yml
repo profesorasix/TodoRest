@@ -12,6 +12,7 @@ parameters:
 framework:
     #esi:             ~
     #translator:      { fallbacks: ["%locale%"] }
+    translator: ~
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -91,3 +92,8 @@ services:
 
 # app/config/config.yml
 nelmio_api_doc: ~
+
+fos_user:
+    db_driver: orm 
+    firewall_name: main
+    user_class: AppBundle\Entity\User

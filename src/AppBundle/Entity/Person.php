@@ -36,10 +36,7 @@ class Person
     protected $age;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
-     * @Assert\Date(
-     *     message = "No es una fecha válida."
-     * )
+     * @ORM\Column(type="date", nullable=true)     
      */
     protected $birthDate;
     

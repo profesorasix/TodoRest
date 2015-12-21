@@ -2,36 +2,20 @@
 
 {% block title %} Desarrollo Web en entorno servidor {% endblock %}
 
-{% block body %}
+{% block content %}
 
+<div class="page-header">
 <h1>Symfony</h1>
-<h2>Índice de prácticas </h2>
+</div>
+<p class="lead">En esta página podéis ver un ejemplo funcional de las actividades a 
+realizar en el módulo de Desarrollo Web en entorno servidor</p>
 
-<ul>
-	<li><strong>Controladores y Rutas</strong></li>
-	<ul>
-		<li><a href="{{ path('_t42_index') }}">T42</a></li>
-		<li><a href="{{ path('_t43_index') }}">T43</a></li>
-		<li><a href="{{ path('_t44_index') }}">T44</a></li>
-	</ul>	
-	<li><strong>Doctrine</strong></li>
-	<ul>
-		<li><a href="{{ path('_t51_index') }}">T51 - Productos</a></li>
-		<li><a href="{{ path('_t52_index') }}">T52 - Categorías</a></li>
-	</ul>
-	<li><strong>Formularios</strong></li>
-	<ul>
-		<li><a href="{{ path('_t62_index') }}">T62 - Personas</a></li>			
-	</ul>
-	
-	<li><strong>Seguridad</strong></li>
-	<p>Usuario/contraseña necesario para acceder al panel de administración de productos y categorías.
-	Es necesario loggearse como admin para poder editar y borrar</p>
-	<ul>
-		<li><em>ROLE_USER</em>: dws/dws</li>
-		<li><em>ROLE_APP_ADMIN</em>: admin/admin</li>			
-	</ul>
 
+
+<h3>Usuarios</h3>
+	<p>Para hacer uso completo de la aplicación, será necesario registrarse en la web.
+	Los usuario registrados obtendrán el role ROLE_USER.
+	<p class="text-info">Para acceder como administrador loggearse como: <em>admin/admin</em></p>
 </ul>
 
 {% endblock %}

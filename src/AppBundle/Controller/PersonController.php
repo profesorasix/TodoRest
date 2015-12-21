@@ -19,7 +19,7 @@ class PersonController extends Controller {
 	
 	
 	/**			
-	 * @Route("/person/show/{id}", name="_t62_person_show")
+	 * @Route("/person/show/{id}", name="person_show")
 	 */
 	public function showAction($id) {
 		$person = $this->getDoctrine ()->getRepository ( 'AppBundle:Person' )->find ( $id );
@@ -36,7 +36,7 @@ class PersonController extends Controller {
 	}	
 		
 	/**
-	 * @Route("/person/delete/{id}", name="_t62_person_delete")
+	 * @Route("/person/delete/{id}", name="person_delete")
 	 */
 	public function deleteAction($id) {
 		$person = $this->getDoctrine ()->getRepository ( 'AppBundle:Person' )->find ( $id );
@@ -50,7 +50,7 @@ class PersonController extends Controller {
 	}
 
 	/**
-	 * @Route("/person/list", name="_t62_person_list")
+	 * @Route("/person/list", name="person_list")
 	 */
 	public function listAction() {
 		$persons = $this->getDoctrine ()->getRepository ( 'AppBundle:Person' )->findAll ();
@@ -61,7 +61,7 @@ class PersonController extends Controller {
 	}
 	
 	/**
-	 * @Route("/person/new/", name="_t62_person_new")
+	 * @Route("/person/new/", name="person_new")
 	 */
 	public function newProductAction(Request $request) {
 		
@@ -83,6 +83,7 @@ class PersonController extends Controller {
 					'widget' => 'single_text',
 					'format' => 'dd-MM-yyyy',
 					'label'=>'Fecha de nac.',
+					'invalid_message' => 'La fecha introducida no es válida (dd/mm/yyyy)',
 					'required' => true
 			))			
 			->add ('height', 'text', array(
@@ -159,8 +160,8 @@ class PersonController extends Controller {
 			
 			
 			return $form->get('saveAndAdd')->isClicked()
-        		? $this->redirectToRoute('_t62_person_new',array(),301)
-        		: $this->redirectToRoute('_t62_person_list',array(),301);   			
+        		? $this->redirectToRoute('person_new',array(),301)
+        		: $this->redirectToRoute('person_list',array(),301);   			
         				
 		}
 		

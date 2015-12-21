@@ -2,11 +2,12 @@
 
 {% block title %} Listado de productos {% endblock %}
 
-{% block body %}
+{% block content %}
 
 <h2>Listado de productos</h2>
 
-<table>
+<table class="table table-striped">
+<thead>
 	<tr>
 		<th>id</th>
 		<th>Nombre</th>
@@ -18,24 +19,27 @@
 		<th>Eliminar</th>
 		{% endif %}
 	</tr>
+	</thead>
 	{% for product in products %}
+	<tbody>
 	<tr>
-		<td><a href="{{ path('_t51_product_show', {'id' : product.id }) }}">
+		<td><a href="{{ path('product_show', {'id' : product.id }) }}">
 			{{ product.id }}</a></td>
 		<td>{{ product.name }}</td>
 		<td>{{ product.description }}</td>
 		<td>{{ product.price | localizedcurrency('EUR') }}</td>
-		<td><a href="{{ path('_t52_product_list_category', {'name' : product.category }) }}">			
+		<td><a href="{{ path('product_list_category', {'name' : product.category }) }}">			
 			{{ product.category }}</a>
 		</td>
 		{% if is_granted('ROLE_APP_ADMIN') %}
-		<td><a href="{{ path('_product_edit', {'id' : product.id }) }}">
+		<td><a href="{{ path('product_edit', {'id' : product.id }) }}">
 			<i class="fa fa-pencil-square-o"></i></a></td>
-		<td><a href="{{ path('_t51_product_delete', {'id' : product.id }) }}">
+		<td><a href="{{ path('product_delete', {'id' : product.id }) }}">
 			<i class="fa fa-trash fa-lg"></i></a></td>
 	    {% endif %}
 		
 	</tr>
+	</tbody>
 	{% endfor %}
 </table>
 

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% if form is defined %}
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+{% endif %}
+
+{% block title %}Seguridad{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class='col-sm-5'>
+    {% block fos_user_content %}
+    {% endblock %}
+    </div>
+</div>
+{% endblock %}

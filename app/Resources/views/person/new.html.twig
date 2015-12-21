@@ -1,14 +1,42 @@
 {% extends 'base.html.twig' %} 
 
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+
+
 {% block title %} Person {% endblock %} 
 
-{% block body %}
+{% block content %}
 
 <h2>Person</h2>
+<div class="row">
+	<div class='col-sm-5'>
+		{{ form_start(form) }}		
+		
 
-{{ form_start(form) }}
-{{ form_widget(form) }}
-{{ form_end(form) }}
+		{{ form_row(form.name) }}
+		{{ form_row(form.age) }}
+		{{ form_row(form.birthDate) }}
+		{{ form_row(form.height) }}
+		{{ form_row(form.email) }}
+		{{ form_row(form.phone) }}
+		{{ form_row(form.gender) }}
+		{{ form_row(form.email) }}
+		{{ form_row(form.descends) }}
+		{{ form_row(form.vehicle) }}
+		{{ form_row(form.preferredLanguage) }}
+			
+		{{ form_row(form.englishLevel,{'label_attr' : {'class' : 'radio-inline'}}) }}
+						
+		{{ form_row(form.personalWebSite) }}
+		{{ form_row(form.cardNumber) }}
+		{{ form_row(form.IBAN) }}
+		{{ form_row(form.save) }}
+		{{ form_row(form.saveAndAdd) }}	
+		
+		
+		{{ form_end(form) }}
+	</div>
+</div>
 
 <ul>
 	<li><a href="{{ app.request.headers.get('referer') }}">Atrás</a></li>	

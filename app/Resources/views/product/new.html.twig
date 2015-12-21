@@ -2,13 +2,20 @@
 
 {% block title %} Nuevo producto {% endblock %} 
 
-{% block body %}
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+
+{% block content %}
 
 <h2>Producto</h2>
-
-{{ form_start(form) }}
-{{ form_widget(form) }}
-{{ form_end(form) }}
+<div class="row">
+	<div class='col-sm-5'>
+		{{ form_start(form) }}
+		
+		{{ form_widget(form) }}
+		
+		{{ form_end(form) }}
+	</div>
+</div>
 
 <ul>
 	<li><a href="{{ app.request.headers.get('referer') }}">Atrás</a></li>	

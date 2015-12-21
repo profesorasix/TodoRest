@@ -2,11 +2,11 @@
 
 {% block title %} Listado de personas {% endblock %}
 
-{% block body %}
+{% block content %}
 
 <h2>Listado de personas</h2>
 
-<table>
+<table class="table table-striped">
 	<thead>
 		<tr>
 			<th>id</th>
@@ -18,15 +18,15 @@
 	{% for person in persons %}
 	<tbody>
 		<tr>
-			<td><a href="{{ path('_t62_person_show', {'id' : person.id }) }}">
+			<td><a href="{{ path('person_show', {'id' : person.id }) }}">
 				{{ person.id }}</a></td>
 			<td>{{ person.name }}</td>
 			<td>{{ person.email }}</td>
 			
-			<td><a href="{{ path('_t62_person_delete', {'id' : person.id }) }}">
+			<td><a href="{{ path('person_delete', {'id' : person.id }) }}">
 				<i class="fa fa-trash fa-lg"></i></a></td>
 			
-		</tr>
+		</tr>		
 	</tbody>
 	{% endfor %}
 </table>

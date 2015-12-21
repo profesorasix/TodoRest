@@ -2,11 +2,12 @@
 
 {% block title %} Listado de Categorías {%endblock %}
 
-{% block body %}
+{% block content %}
 
 <h2>Listado de Categorías</h2>
 
-<table>
+<table class="table table-striped">
+<thead>
 	<tr>
 		<th>id</th>
 		<th>Nombre</th>
@@ -16,20 +17,23 @@
 		{% endif %}	
 			
 	</tr>
+	</thead>
 	{% for category in categories %}
+	<tbody>
 	<tr>
 		<td>{{ category.id }}</td>
-		<td><a href="{{ path('_t52_product_list_category', {'name' : category.name }) }}">			
+		<td><a href="{{ path('product_list_category', {'name' : category.name }) }}">			
 			{{ category.name }}</a>
 		</td>
 		{% if is_granted('ROLE_APP_ADMIN') %}
-		<td><a href="{{ path('_category_edit', {'id' : category.id }) }}">
+		<td><a href="{{ path('category_edit', {'id' : category.id }) }}">
 			<i class="fa fa-pencil-square-o"></i></a></td>
-		<td><a href="{{ path('_t52_category_delete', {'id' : category.id }) }}">
+		<td><a href="{{ path('category_delete', {'id' : category.id }) }}">
 			<i class="fa fa-trash fa-lg"></i></a>
 		</td>
 		{% endif %}		
 	</tr>
+	</tbody>
 	{% endfor %}
 </table>
 

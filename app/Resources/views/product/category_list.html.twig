@@ -2,29 +2,33 @@
 
 {% block title %} Listado de productos por categorias {% endblock %}
 
-{% block body %}
+{% block content %}
 
 <h2>Listado de productos por categorías</h2>
 
 
 {% for category in categories %}
 <h4>{{ category.name }}</h4>
-<table>
+<table class="table table-striped">
+<thead>
 	<tr>
 		<th>id</th>
 		<th>Nombre</th>
 		<th>Descripción</th>
 		<th>Precio(€)</th>
 	</tr>
+	</thead>
 	{% for product in category.products %}
+	<tbody>
 	<tr>
-		<td><a href="{{ path('_t51_product_show', {'id' : product.id }) }}">
+		<td><a href="{{ path('product_show', {'id' : product.id }) }}">
 			{{ product.id }}</a>
 		</td>
 		<td>{{ product.name }}</td>
 		<td>{{ product.description }}</td>
 		<td>{{ product.price | localizedcurrency('EUR') }}</td>
 	</tr>
+	</tbody>
 	{% endfor %}		
 </table>
 {% endfor %}

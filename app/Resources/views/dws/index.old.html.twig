@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Desarrollo Web en entorno servidor {% endblock %}
+
+{% block body %}
+
+<h1>Symfony</h1>
+<h2>Índice de prácticas </h2>
+
+<ul>
+	<li><strong>Controladores y Rutas</strong></li>
+	<ul>
+		<li><a href="{{ path('_t42_index') }}">T42</a></li>
+		<li><a href="{{ path('_t43_index') }}">T43</a></li>
+		<li><a href="{{ path('_t44_index') }}">T44</a></li>
+	</ul>	
+	<li><strong>Doctrine</strong></li>
+	<ul>
+		<li><a href="{{ path('product_index') }}">T51 - Productos</a></li>
+		<li><a href="{{ path('category_index') }}">T52 - Categorías</a></li>
+	</ul>
+	<li><strong>Formularios</strong></li>
+	<ul>
+		<li><a href="{{ path('person_index') }}">T62 - Personas</a></li>			
+	</ul>
+	
+	<li><strong>Seguridad</strong></li>
+	<p>Usuario/contraseña necesario para acceder al panel de administración de productos y categorías.
+	Es necesario loggearse como admin para poder editar y borrar</p>
+	<ul>
+		<li><em>ROLE_USER</em>: dws/dws</li>
+		<li><em>ROLE_APP_ADMIN</em>: admin/admin</li>			
+	</ul>
+
+</ul>
+
+{% endblock %}

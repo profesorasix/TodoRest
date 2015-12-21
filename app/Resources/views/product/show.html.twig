@@ -2,11 +2,11 @@
 
 {% block title %} Producto {{ product.name }} {% endblock %} 
 
-{% block body %}
+{% block content %}
 
 <h2>Producto {{ product.id }}</h2>
 
-<table>
+<table class="table">
 <tbody>
 	<tr><td><strong>Nombre</strong></td><td>{{ product.name }}</td></tr>
 	<tr><td><strong>Descripción</strong></td><td>{{ product.description }}</td></tr>

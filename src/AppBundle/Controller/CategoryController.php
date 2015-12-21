@@ -11,14 +11,14 @@ use AppBundle\Entity\Category;
 class CategoryController extends Controller
 {
 	/**
-	 * @Route("/category/", name="_t52_index")
+	 * @Route("/category/", name="category_index")
 	 */
 	public function indexAction() {
 		return $this->render('category/index.html.twig');
 	}
 	
     /**
-     * @Route("/category/create/{name}", name="_t52_category_create")
+     * @Route("/category/create/{name}", name="category_create")
      *  requirements={
  	 *     "name": "[A-Za-z0-9\s-]+",
      */
@@ -43,7 +43,7 @@ class CategoryController extends Controller
     
     
     /**
-     * @Route("/category/list", name="_t52_category_list")
+     * @Route("/category/list", name="category_list")
      */
         
     public function listAction()
@@ -57,7 +57,7 @@ class CategoryController extends Controller
     }
     
     /**
-     * @Route("/category/delete/{id}", name="_t52_category_delete")
+     * @Route("/category/delete/{id}", name="category_delete")
      */
     
     public function deleteAction($id)
@@ -71,11 +71,11 @@ class CategoryController extends Controller
     	$em->remove($category);
     	$em->flush();
     		
-    	return $this->redirectToRoute('_t52_category_list');
+    	return $this->redirectToRoute('category_list');
     }
     
     /**
-     * @Route("/category/new/", name="_t61_category_new")
+     * @Route("/category/new/", name="category_new")
      */
     public function newProductAction(Request $request) {
     
@@ -98,8 +98,8 @@ class CategoryController extends Controller
     			
     			
     		return $form->get('saveAndAdd')->isClicked()
-    			? $this->redirectToRoute('_t61_category_new',array(),301)
-    			: $this->redirectToRoute('_t52_category_list',array(),301);   			
+    			? $this->redirectToRoute('category_new',array(),301)
+    			: $this->redirectToRoute('category_list',array(),301);   			
     		
     	}
     
@@ -109,7 +109,7 @@ class CategoryController extends Controller
     }
     
     /**
-     * @Route("/category/edit/{id}", name="_category_edit")
+     * @Route("/category/edit/{id}", name="category_edit")
      */
     public function editAction($id, Request $request) {
     
@@ -130,7 +130,7 @@ class CategoryController extends Controller
     		$em->persist($category);
     		$em->flush();    		 
     		 
-    		return $this->redirectToRoute('_t52_category_list',array(),301);    
+    		return $this->redirectToRoute('category_list',array(),301);    
     	}
     
     	return $this->render ('category/new.html.twig', array (
