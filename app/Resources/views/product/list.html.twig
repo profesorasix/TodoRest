@@ -1,22 +1,24 @@
 {% extends 'base.html.twig' %}
 
+{% trans_default_domain 'AppBundle' %}
+
 {% block title %} Listado de productos {% endblock %}
 
 {% block content %}
 
-<h2>Listado de productos</h2>
+<h2>{{ 'product.list.header' | trans }}</h2>
 
 <table class="table table-striped">
 <thead>
 	<tr>
-		<th>id</th>
-		<th>Nombre</th>
-		<th>Descripción</th>
-		<th>Precio(€)</th>
-		<th>Categoría</th>
+		<th>{{ 'product.id' | trans }}</th>
+		<th>{{ 'product.name' | trans }}</th>
+		<th>{{ 'product.description' | trans }}</th>
+		<th>{{ 'product.price' | trans }}(€)</th>
+		<th>{{ 'product.category' | trans }}</th>
 		{% if is_granted('ROLE_APP_ADMIN') %}
-		<th>Editar</th>
-		<th>Eliminar</th>
+		<th>{{ 'product.list.edit' | trans }}</th>
+		<th>{{ 'product.list.delete' | trans }}</th>
 		{% endif %}
 	</tr>
 	</thead>

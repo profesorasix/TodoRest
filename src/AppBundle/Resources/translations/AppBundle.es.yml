@@ -1,0 +1,20 @@
+product:
+    id:  'id'
+    name:  'Nombre'
+    description: 'Descripción'
+    price: 'Precio'
+    category: 'Categoría'
+    list:
+      header: 'Listado de productos'
+      edit: 'Editar'
+      delete: 'Eliminar'
+    flash: 
+      price: 'El valor del precio introducido es erroneo'    
+    form:
+      save: 'Guardar'
+      saveAndAdd: 'Guardar y continuar'
+      
+category:
+
+
+person:   

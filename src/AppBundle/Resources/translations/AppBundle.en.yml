@@ -1,0 +1,20 @@
+product:    
+    id:  'id'
+    name:  'Name'
+    description: 'Description'
+    price: 'Price'
+    category: 'Category'
+    list:
+      header: 'Product List'
+      edit: 'Edit'
+      delete: 'Delete'
+    flash: 
+      price: 'Price value not valid'    
+    form:
+      save: 'Save'
+      saveAndAdd: 'Save and add'
+      
+category:
+
+
+person:

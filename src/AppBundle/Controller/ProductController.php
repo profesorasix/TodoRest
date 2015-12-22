@@ -197,17 +197,22 @@ class ProductController extends Controller {
 		$product = new Product();		
 				
 		$form = $this->createFormBuilder ($product)
-			->add ( 'name', 'text' )
-			->add ( 'description', 'text', array('required' => false) )
-			->add ( 'price', 'money', array(			
-				'invalid_message' => 'Formato de moneda incorrecto'
-				))
-			->add ('category', 'entity', array(
-					'class' => 'AppBundle:Category',
-					'choice_label' => 'name'
-			 		))			
-			->add ( 'save', 'submit', array ('label' => 'Save'))
-    		->add('saveAndAdd', 'submit', array('label' => 'Save and add'))
+		->add ( 'name', 'text', array(
+				'label' => 'product.name') )
+		->add ( 'description', 'text', array(
+				'label' => 'product.description', 
+				'required' => false) )
+		->add ( 'price', 'money', array(
+				'label' => 'product.price',
+				'invalid_message' => 'product.flash.price'
+		))
+		->add ('category', 'entity', array(
+				'label' => 'product.category',
+				'class' => 'AppBundle:Category',
+				'choice_label' => 'name'
+		))
+		->add ( 'save', 'submit', array (
+				'label' => 'product.form.save'))
     		->getForm ();
 		
 		$form->handleRequest ( $request );
@@ -239,17 +244,24 @@ class ProductController extends Controller {
 		$product = $em->getRepository('AppBundle:Product')->find($id);
 	
 		$form = $this->createFormBuilder ($product)
-		->add ( 'name', 'text' )
-		->add ( 'description', 'text', array('required' => false) )
+		->add ( 'name', 'text', array(
+				'label' => 'product.name') )
+		->add ( 'description', 'text', array(
+				'label' => 'product.description', 
+				'required' => false) )
 		->add ( 'price', 'money', array(
-				'invalid_message' => 'Formato de moneda incorrecto'
+				'label' => 'product.price',
+				'invalid_message' => 'product.flash.price'
 		))
 		->add ('category', 'entity', array(
+				'label' => 'product.category',
 				'class' => 'AppBundle:Category',
 				'choice_label' => 'name'
 		))
-		->add ( 'save', 'submit', array ('label' => 'Save'))		
-		->getForm ();
+		->add ( 'save', 'submit', array (
+				'label' => 'product.form.save'))
+    		->getForm ();	
+		
 	
 		$form->handleRequest ( $request );
 	
