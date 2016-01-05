@@ -1,22 +1,25 @@
 {% extends 'base.html.twig' %} 
 
-{% block title %} Producto {{ product.name }} {% endblock %} 
+{% trans_default_domain 'AppBundle' %}
+
+
+{% block title %} {{ 'product.show.title' | trans({'%productname' : product.name}) }} {% endblock %} 
 
 {% block content %}
 
-<h2>Producto {{ product.id }}</h2>
+<h2>{{ 'product.show.header' | trans({'%productname%' : product.name}) }}</h2>
 
 <table class="table">
 <tbody>
-	<tr><td><strong>Nombre</strong></td><td>{{ product.name }}</td></tr>
-	<tr><td><strong>Descripción</strong></td><td>{{ product.description }}</td></tr>
-	<tr><td><strong>Precio</strong></td><td>{{ product.price | localizedcurrency('EUR') }}</td></tr>
-	<tr><td><strong>Imagen</strong></td><td><img src="holder.js/200x200" alt="Image placeholder" /></td></tr>		
+	<tr><td><strong>{{ 'product.id' | trans }}</strong></td><td>{{ product.name }}</td></tr>
+	<tr><td><strong>{{ 'product.description' | trans}}</strong></td><td>{{ product.description }}</td></tr>
+	<tr><td><strong>{{ 'product.price' | trans}}</strong></td><td>{{ product.price | localizedcurrency('EUR') }}</td></tr>
+	<tr><td><strong>{{ 'product.show.image' | trans }}</strong></td><td><img src="holder.js/200x200" alt="Image placeholder" /></td></tr>		
 </tbody>
 </table>
 
 <ul>
-	<li><a href="{{ app.request.headers.get('referer') }}">Atrás</a></li>	
+	<li><a href="{{ app.request.headers.get('referer') }}">{{ 'menu.navigation.back' | trans }} Atrás</a></li>	
 </ul>
 
 {% endblock %}

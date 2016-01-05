@@ -1,20 +1,96 @@
-product:    
-    id:  'id'
-    name:  'Name'
+product:
+    id: 'id'
+    name: 'Name'
     description: 'Description'
     price: 'Price'
     category: 'Category'
     list:
-      header: 'Product List'
-      edit: 'Edit'
-      delete: 'Delete'
+        title: 'Product list'
+        header: 'Product list'
+        edit: 'Edit'
+        delete: 'Delete'
+    new: 
+        title: 'New product'
+        header: 'New product'
+    show: 
+        title: 'Product detail:  %productname%'
+        header: 'Product: %productname%'
+        image: 'Image'
     flash: 
-      price: 'Price value not valid'    
+        price: 'Price value not valid'    
     form:
-      save: 'Save'
-      saveAndAdd: 'Save and add'
-      
+        save: 'Save'
+        saveAndAdd: 'Save and add'  
+    category_list:
+        title: 'Product list by category'  
+
+
 category:
+    id: 'id'
+    name: 'Name'
+    list:
+        title: 'Category list'
+        header: 'Category list'
+        edit: 'Edit'
+        delete: 'Delete'
+    new:
+        title: 'New category'
+    show:
+        title: 'Category detail: %categoryname%'
+    form:
+        save: 'Save'
+        saveAndAdd: 'Save and add'
 
-
-person:
+person:   
+    id: 'id'
+    name: 'Name'
+    birth_date: 'Birth date'
+    age: 'Age'
+    phone: 'Phone'
+    gender: 'Gender'
+    email: 'email'
+    descends: 'Descends'
+    vehicle: 'Vehicle'
+    preferred_language: 'Language'
+    englishLevel: 'English level'
+    personal_website: 'WebSite'
+    card_umber: 'Credit card'
+    iban: 'IBAN'
+    list:
+        title: 'Person list'
+        edit: 'Edit'
+        delete: 'Delete'
+    new:
+        title: 'New person'  
+        header: 'Person'      
+    show:
+        title: 'Person detail'
+        image: 'Image'
+    form:
+        save: 'Save'
+        save_and_add: 'Save and add'
+        male: 'Male'
+        female: 'Female'
+menu:
+    product:
+        item: 'Products'
+        new: 'New'
+        new_static: 'New statically'
+        new_parametrized: 'New parametrized'
+        list: 'List'
+        category_list: 'Product list by category'
+    category:
+        item: 'Categories'
+        new: 'New'
+        new_static: 'New estatically'
+        list: 'List'
+    person:
+        item: 'Person'
+        new: 'New'
+        list: 'List'
+    user:
+        register: 'Register'
+        login: 'Login'
+        logout: 'Logout'
+        password_change: 'Password change'
+        edit: 'Edit'

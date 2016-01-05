@@ -1,0 +1,27 @@
+person:
+    age:
+        min:  'Minimum age is : {{ limit }}'
+        max: 'Maximum age is: {{ limit }}'
+        invalid: 'Invalid value.' 
+    height:
+        min: 'Minimum height is: {{ limit }}'
+        max: 'Maximum height is: {{ limit }}'
+        invalid: 'Invalid value.'
+    email:
+        invalid: 'Email {{ value }} invalid.'
+    phone: 
+        invalid: 'Phone number must have between 9 and 12 digits.'
+    gender:
+        invalid: 'Choose a valid genderd.'
+    descends:
+        min: 'Minimum number is:{{ limit }}'
+        max: 'Maximum number is: {{ limit }}'
+        invalid: 'Invalid value'
+    preferred_languaje:
+        invalid: 'Langude must be a valid ISO code'
+    URL:
+        invalid: 'Invalid URL'
+    card_number:
+        invalid: 'Credit card invalid'
+    iban:
+        invalid: 'Not a valid International Bank Account Number (IBAN).'

@@ -1,20 +1,99 @@
 product:
-    id:  'id'
-    name:  'Nombre'
+    id: 'id'
+    name: 'Nombre'
     description: 'Descripción'
     price: 'Precio'
     category: 'Categoría'
     list:
-      header: 'Listado de productos'
-      edit: 'Editar'
-      delete: 'Eliminar'
+        title: 'Listado de productos'
+        header: 'Listado de productos'
+        edit: 'Editar'
+        delete: 'Eliminar'
+    new: 
+        title: 'Nuevo producto'
+        header: 'Nuevo producto'
+    show: 
+        title: 'Detalle producto:  %productname%'
+        header: 'Producto: %productname%'
+        image: 'Imagen'
     flash: 
-      price: 'El valor del precio introducido es erroneo'    
+        price: 'El valor del precio introducido es erroneo'    
     form:
-      save: 'Guardar'
-      saveAndAdd: 'Guardar y continuar'
-      
-category:
+        save: 'Guardar'
+        saveAndAdd: 'Guardar y continuar'  
+    category_list:
+        title: 'Listado de productos por categorías'  
 
+
+category:
+    id: 'id'
+    name: 'Nombre'
+    list:
+        title: 'Listado de categorías'
+        header: 'Listado de categorías'
+        edit: 'Editar'
+        delete: 'Eliminar'
+    new:
+        title: 'Nueva categoría'
+    show:
+        title: 'Detalle de categoría: %categoryname%'
+    form:
+        save: 'Guardar'
+        saveAndAdd: 'Guardar y continuar'
 
 person:   
+    id: 'id'
+    name: 'Nombre'
+    birth_date: 'Fecha de nacimiento'
+    age: 'Edad'
+    phone: 'Teléfono'
+    height: 'Altura'
+    gender: 'Género'
+    email: 'Correo electrónico'
+    descends: 'Descendientes'
+    vehicle: 'Vehículo'
+    preferred_language: 'Idioma'
+    english_level: 'Nivel de inglés'
+    personal_website: 'Sitio Web'
+    card_number: 'Tarjeta de credito'
+    iban: 'IBAN'
+    list:
+        title: 'Listado de personas'
+        edit: 'Editar'
+        delete: 'Eliminar'
+    new:
+        title: 'Nueva persona' 
+        header: 'Persona'   
+    edit:
+        title: 'Editar persona'    
+    show:
+        title: 'Detalle de persona'
+        image: 'Imagen'
+    form:
+        save: 'Guardar'
+        save_and_add: 'Guardar y continuar'
+        male: 'Masculino'
+        female: 'Femenino'
+menu:
+    product:
+        item: 'Productos'
+        new: 'Nuevo'
+        new_static: 'Nuevo estática'
+        new_parametrized: 'Nuevo parametrizado'
+        list: 'Listado'
+        category_list: 'Listado productos por categorías'
+    category:
+        item: 'Categorías'
+        new: 'Nueva'
+        new_static: 'Nueva estática'
+        list: 'Listado'
+    person:
+        item: 'Persona'
+        new: 'Nueva'
+        list: 'Listado'
+    user:
+        register: 'Registrarse'
+        login: 'Acceder'
+        logout: 'Salir'
+        password_change: 'Cambio contraseña'
+        edit: 'Editar'

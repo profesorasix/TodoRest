@@ -1,0 +1,27 @@
+person:
+    age:
+        min:  'La edad mínima es: {{ limit }}'
+        max: 'La edad máxima es: {{ limit }}'
+        invalid: 'El valor introducido no es válido' 
+    height:
+        min: 'La altura mínima es {{ limit }}'
+        max: 'La altura máxima es {{ limit }}'
+        invalid: 'El valor introducido no es válido.'
+    email:
+        invalid: 'El email {{ value }} no es válido.'
+    phone: 
+        invalid: 'El telefono debe estar formado por entre 9 y 12 dígitos.'
+    gender:
+        invalid: 'Elige un genero válido.'
+    descends:
+        min: 'El número mínimo es {{ limit }}'
+        max: 'El número máximo es {{ limit }}'
+        invalid: 'El valor introducido no es válido'
+    preferred_languaje:
+        invalid: 'El lenguaje ha de ser en formato ISO'
+    URL:
+        invalid: 'La URL ha de ser válida'
+    card_number:
+        invalid: 'En número de tarjeta no es válido'
+    iban:
+        invalid: 'Este no es un número válido de International Bank Account Number (IBAN).'

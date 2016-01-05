@@ -1,19 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Listado de Categorías {%endblock %}
+{% trans_default_domain 'AppBundle' %}
+
+{% block title %} {{ 'category.list.title' | trans }} {%endblock %}
 
 {% block content %}
 
-<h2>Listado de Categorías</h2>
+<h2>{{ 'category.list.header' | trans }}</h2>
 
 <table class="table table-striped">
 <thead>
 	<tr>
-		<th>id</th>
-		<th>Nombre</th>
+		<th>{{ 'category.id' | trans }}</th>
+		<th>{{ 'category.name' | trans }}</th>
 		{% if is_granted('ROLE_APP_ADMIN') %}
-		<th>Editar</th>
-		<th>Borrar</th>
+		<th>{{ 'category.list.edit' | trans }}</th>
+		<th>{{ 'category.list.delete' | trans }}</th>
 		{% endif %}	
 			
 	</tr>

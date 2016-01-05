@@ -1,18 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Listado de personas {% endblock %}
+{% trans_default_domain 'AppBundle' %}
+
+{% block title %} {{ 'person.list.title' | trans }} {% endblock %}
 
 {% block content %}
 
-<h2>Listado de personas</h2>
+<h2>{{ 'person.list.title' | trans }}</h2>
 
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>id</th>
-			<th>Nombre</th>	
-			<th>Email</th>	
-			<th>Eliminar</th>
+			<th>{{ 'person.id' | trans }}</th>
+			<th>{{ 'person.name' | trans }}</th>	
+			<th>{{ 'person.email' | trans }}</th>	
+			<th>{{ 'person.list.edit' | trans }}</th>
+			<th>{{ 'person.list.delete' | trans }}</th>
 		</tr>
 	</thead>
 	{% for person in persons %}
@@ -23,6 +26,8 @@
 			<td>{{ person.name }}</td>
 			<td>{{ person.email }}</td>
 			
+			<td><a href="{{ path('person_edit', {'id' : person.id }) }}">
+				<i class="fa fa-pencil-square-o"></i></a></td>
 			<td><a href="{{ path('person_delete', {'id' : person.id }) }}">
 				<i class="fa fa-trash fa-lg"></i></a></td>
 			

@@ -1,10 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Listado de productos por categorias {% endblock %}
+{% trans_default_domain 'AppBundle' %}
+
+{% block title %} {{ 'product.category_list.title' | trans }} {% endblock %}
 
 {% block content %}
 
-<h2>Listado de productos por categorías</h2>
+<h2>{{ 'product.category_list.title' | trans }}</h2>
 
 
 {% for category in categories %}
@@ -12,10 +14,10 @@
 <table class="table table-striped">
 <thead>
 	<tr>
-		<th>id</th>
-		<th>Nombre</th>
-		<th>Descripción</th>
-		<th>Precio(€)</th>
+		<th>{{ 'product.id' | trans }}</th>
+		<th>{{ 'product.name' | trans }}</th>
+		<th>{{ 'product.description' | trans }}</th>
+		<th>{{ 'product.price' | trans }}(€)</th>
 	</tr>
 	</thead>
 	{% for product in category.products %}

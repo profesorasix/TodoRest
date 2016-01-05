@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %} 
 
+{% trans_default_domain 'AppBundle' %}
+
 {% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
 
-
-{% block title %} Person {% endblock %} 
+{% block title %} {{ 'person.new.title' | trans}} {% endblock %} 
 
 {% block content %}
 
-<h2>Person</h2>
+<h2>{{ 'person.new.header' | trans }}</h2>
 <div class="row">
 	<div class='col-sm-5'>
 		{{ form_start(form) }}		
@@ -30,9 +31,7 @@
 		{{ form_row(form.personalWebSite) }}
 		{{ form_row(form.cardNumber) }}
 		{{ form_row(form.IBAN) }}
-		{{ form_row(form.save) }}
-		{{ form_row(form.saveAndAdd) }}	
-		
+		{{ form_row(form.save) }}		
 		
 		{{ form_end(form) }}
 	</div>
