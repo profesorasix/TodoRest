@@ -11,14 +11,14 @@ use AppBundle\Entity\Category;
 class CategoryController extends Controller
 {
 	/**
-	 * @Route("/category/", name="category_index")
+	 * @Route("{_locale}/category/", name="category_index")
 	 */
 	public function indexAction() {
 		return $this->render('category/index.html.twig');
 	}
 	
     /**
-     * @Route("/category/create/{name}", name="category_create")
+     * @Route("{_locale}/category/create/{name}", name="category_create")
      *  requirements={
  	 *     "name": "[A-Za-z0-9\s-]+",
      */
@@ -43,7 +43,7 @@ class CategoryController extends Controller
     
     
     /**
-     * @Route("/category/list", name="category_list")
+     * @Route("{_locale}/category/list", name="category_list")
      */
         
     public function listAction()
@@ -75,7 +75,7 @@ class CategoryController extends Controller
     }
     
     /**
-     * @Route("/category/new/", name="category_new")
+     * @Route("{_locale}/category/new/", name="category_new")
      */
     public function newProductAction(Request $request) {
     
@@ -83,7 +83,7 @@ class CategoryController extends Controller
     
     	$category = new Category();
     
-    	$form = $this->createFormBuilder ($category)
+    	$form = $this->createFormBuilder ($category,['translation_domain' => 'AppBundle'])
     	->add ( 'name', 'text' )    	
     	->add ( 'save', 'submit', array ('label' => 'Save'))
     	->add('saveAndAdd', 'submit', array('label' => 'Save and add'))
@@ -109,7 +109,7 @@ class CategoryController extends Controller
     }
     
     /**
-     * @Route("/category/edit/{id}", name="category_edit")
+     * @Route("{_locale}/category/edit/{id}", name="category_edit")
      */
     public function editAction($id, Request $request) {
     
@@ -118,7 +118,7 @@ class CategoryController extends Controller
     	$category = $em->getRepository('AppBundle:Category')->find($id);  
     	
     
-    	$form = $this->createFormBuilder ($category)
+    	$form = $this->createFormBuilder ($category,['translation_domain' => 'AppBundle'])
     	->add ( 'name', 'text' )
     	->add ( 'save', 'submit', array ('label' => 'Save'))    	
     	->getForm ();

@@ -17,14 +17,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 class ProductController extends Controller {
 	
 	/** 	 
-	 * @Route("/product", name="product_index")
+	 * @Route("/{_locale}/product", name="product_index")
 	 */
 	public function indexAction() {
 		return $this->render ( 'product/index.html.twig' );
 	}
 	
 	/**	 
-	 * @Route("/product/create/", name="product_create_static")
+	 * @Route("{_locale}/product/create/", name="product_create_static")
 	 */
 	public function createStaticAction() {
 		$em = $this->getDoctrine ()->getManager ();
@@ -55,7 +55,7 @@ class ProductController extends Controller {
 	}
 	
 	/**	 
-	 * @Route("/product/create/{name}/{price}", name="product_create",
+	 * @Route("{_locale}/product/create/{name}/{price}", name="product_create",
 	 * requirements={
 	 * "name": "[A-Za-z0-9\s-]+",
 	 * "price" : "\d{2}(\.\d{2})?"
@@ -92,7 +92,7 @@ class ProductController extends Controller {
 	
 	/**	
 	 * @ApiDoc() 
-	 * @Route("/product/get/{id}", name="product_show")
+	 * @Route("{_locale}/product/get/{id}", name="product_show")
 	 * @Method("GET")
 	 */
 	public function showAction($id) {
@@ -129,7 +129,7 @@ class ProductController extends Controller {
 	
 	/**
 	 * @ApiDoc()
-	 * @Route("/product/list/category/all.{_format}", name="product_list_category_all",
+	 * @Route("{_locale}/product/list/category/all.{_format}", name="product_list_category_all",
 	 *     defaults={"_format": "html"},
 	 *     requirements={
 	 * 	        "_format": "html|xml|json",
@@ -151,7 +151,7 @@ class ProductController extends Controller {
 	}
 	
 	/**
-	 * @Route("/product/list/category/{name}", name="product_list_category")
+	 * @Route("{_locale}/product/list/category/{name}", name="product_list_category")
 	 */
 	public function listByCategoryAction($name) {
 		$categories = $this->getDoctrine ()->getRepository ( 'AppBundle:Category' )->findByName ( $name );
@@ -163,7 +163,7 @@ class ProductController extends Controller {
 	
 	/**
 	 * @ApiDoc() 
-	 * @Route("/product/list.{_format}", name="product_list",
+	 * @Route("{_locale}/product/list.{_format}", name="product_list",
 	 *     defaults={"_format": "html"},
 	 *     requirements={	 
 	 * 	        "_format": "html|xml|json",
@@ -188,7 +188,7 @@ class ProductController extends Controller {
 	}
 	
 	/**	 
-	 * @Route("/product/new/", name="product_new")
+	 * @Route("{_locale}/product/new/", name="product_new")
 	 */
 	public function newAction(Request $request) {
 		
@@ -196,7 +196,7 @@ class ProductController extends Controller {
 		
 		$product = new Product();		
 				
-		$form = $this->createFormBuilder ($product)
+		$form = $this->createFormBuilder ($product, ['translation_domain' => 'AppBundle'])
 		->add ( 'name', 'text', array(
 				'label' => 'product.name') )
 		->add ( 'description', 'text', array(
@@ -235,7 +235,7 @@ class ProductController extends Controller {
 	}
 	
 	/**
-	 * @Route("/product/edit/{id}", name="product_edit")
+	 * @Route("{_locale}/product/edit/{id}", name="product_edit")
 	 */
 	public function editAction($id, Request $request) {
 		
@@ -243,7 +243,7 @@ class ProductController extends Controller {
 	
 		$product = $em->getRepository('AppBundle:Product')->find($id);
 	
-		$form = $this->createFormBuilder ($product)
+		$form = $this->createFormBuilder ($product,['translation_domain' => 'AppBundle'])
 		->add ( 'name', 'text', array(
 				'label' => 'product.name') )
 		->add ( 'description', 'text', array(
