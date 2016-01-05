@@ -28,9 +28,9 @@ class Person
      * @Assert\Range(
      *      min = 18,
      *      max = 90,
-     *      minMessage = "La edad mínima es {{ limit }}",
-     *      maxMessage = "La edad máxima es {{ limit }}",
-     *      invalidMessage = "El valor introducido no es válido."
+     *      minMessage = "person.age.min",
+     *      maxMessage = "person.age.max",
+     *      invalidMessage = "person.age.invalid"
      * )
      */
     protected $age;
@@ -45,9 +45,9 @@ class Person
      * @Assert\Range(
      *      min = 100,
      *      max = 300,
-     *      minMessage = "La altura mínima es {{ limit }}",
-     *      maxMessage = "La altura máxima es {{ limit }}",
-     *      invalidMessage = "El valor introducido no es válido."
+     *      minMessage = "person.height.min",
+     *      maxMessage = "person.height.max",
+     *      invalidMessage = "person.height.invalid"
      * )
      */
     protected $height;
@@ -55,7 +55,7 @@ class Person
     /**
      * @ORM\Column(type="string")
      * @Assert\Email(
-     *     message = "El email '{{ value }}' no es válido."     
+     *     message = "person.email.invalid"     
      * )
      */
     protected $email;
@@ -63,7 +63,7 @@ class Person
     /**
      * @ORM\Column(type="integer")
      * @Assert\Regex(pattern="/^[0-9]{9,12}$/",      	
-     *     message = "El telefono debe estar formado por entre 9 y 12 dígitos."
+     *     message = "person.phone.invalid"
      * )
      */
     protected $phone;
@@ -71,7 +71,7 @@ class Person
     /**
      * @ORM\Column(type="string")
      * @Assert\Choice(choices = {"m", "f"},
-     *  message = "Elige un genero válido.")
+     *  message = "person.gender.invalid")
      */
     protected $gender;
     
@@ -80,8 +80,8 @@ class Person
      * @Assert\Range(
      *      min = 0,
      *      max = 20,
-     *      minMessage = "El número mínimo es {{ limit }}",
-     *      maxMessage = "El número máximo es {{ limit }}"
+     *      minMessage = "person.descends.min",
+     *      maxMessage = "person.descends.max"
      * )
      */
     protected $descends;
@@ -93,7 +93,7 @@ class Person
     
     /**
      * @ORM\Column(type="string", nullable=true)
-     * @Assert\Language(message="El lenguaje ha de ser en formato unicode")
+     * @Assert\Language(message="person.preferred_languaje.invalid")
      */
     protected $preferredLanguage;
     
@@ -104,7 +104,7 @@ class Person
     
     /**
      * @ORM\Column(type="string", nullable=true)
-     * @Assert\Language(message="El lenguaje ha de ser en formato unicode")
+     * @Assert\Url(message="person.url.invalid")
      */
     protected $personalWebSite;
     
@@ -112,7 +112,7 @@ class Person
      * @ORM\Column(type="string", nullable=true)
      * @Assert\CardScheme(
      *     schemes={"VISA","MASTERCARD","MAESTRO"},
-     *     message="Tu número de tarjeta de crédido es inválido."
+     *     message="person.card_number.invalid"
      * )
      */
      
@@ -122,7 +122,7 @@ class Person
     /**
      * @ORM\Column(type="string", nullable=true)
      * @Assert\Iban(
-     *     message="Este no es un número válido de International Bank Account Number (IBAN)."
+     *     message="person.iban.invalid."
      * )
      */
     protected $IBAN;
