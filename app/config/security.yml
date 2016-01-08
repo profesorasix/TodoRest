@@ -30,10 +30,13 @@ security:
         main:
             pattern: ^/
             anonymous: true
-            logout: true
+            logout:
+                path:   fos_user_security_logout
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
 
         app_secured_area:            
             anonymous: ~
@@ -55,17 +58,17 @@ security:
         ROLE_SUPER_ADMIN: ROLE_ADMIN
     access_control:
     # require ROLE_ADMIN for /admin*
-        - { path: ^/product/list, roles: [ROLE_APP_ADMIN,ROLE_USER] }
-        - { path: ^/product/delete, roles: [ROLE_APP_ADMIN] }
-        - { path: ^/product/new, roles: [ROLE_USER] }
-        - { path: ^/product/edit, roles: [ROLE_APP_ADMIN] }
-        - { path: ^/product/show, roles: [ROLE_USER] }                
-        - { path: ^/category/list, roles: [ROLE_APP_ADMIN,ROLE_USER] }
-        - { path: ^/category/delete, roles: [ROLE_APP_ADMIN] }
-        - { path: ^/category/new, roles: [ROLE_USER] }
-        - { path: ^/category/edit, roles: [ROLE_APP_ADMIN] }
-        - { path: ^/category/show, roles: [ROLE_USER] }
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/[a-z]+/product/list, roles: [ROLE_APP_ADMIN,ROLE_USER] }
+        - { path: ^/[a-z]+/product/delete, roles: [ROLE_APP_ADMIN] }
+        - { path: ^/[a-z]+/product/new, roles: [ROLE_USER] }
+        - { path: ^/[a-z]+/product/edit, roles: [ROLE_APP_ADMIN] }
+        - { path: ^/[a-z]+/product/show, roles: [ROLE_USER] }                
+        - { path: ^/[a-z]+/category/list, roles: [ROLE_APP_ADMIN,ROLE_USER] }
+        - { path: ^/[a-z]+/category/delete, roles: [ROLE_APP_ADMIN] }
+        - { path: ^/[a-z]+/category/new, roles: [ROLE_USER] }
+        - { path: ^/[a-z]+/category/edit, roles: [ROLE_APP_ADMIN] }
+        - { path: ^/[a-z]+/category/show, roles: [ROLE_USER] }
+        - { path: ^/[a-z]+/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/[a-z]+/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/[a-z]+/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
