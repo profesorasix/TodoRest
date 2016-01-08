@@ -94,3 +94,11 @@ menu:
         logout: 'Logout'
         password_change: 'Password change'
         edit: 'Edit'
+
+main:
+    lead: 'This page shows a working example of the activites carried on in the subject Server Web Development'
+    title: 'Server Web Development'
+    header: 'Symfony'
+    header3 : 'User'
+    paragraph: 'To fully use the application, registration is needed. New registered users will have the role ROLE_USER.'
+    text-info: 'Admin user credentials are: <em>admin/admin</em>'

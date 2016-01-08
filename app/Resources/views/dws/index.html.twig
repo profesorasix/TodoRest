@@ -1,21 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Desarrollo Web en entorno servidor {% endblock %}
+{% trans_default_domain 'AppBundle' %}
+
+{% block title %} {{ 'main.title' | trans }} {% endblock %}
 
 {% block content %}
 
 <div class="page-header">
-<h1>Symfony</h1>
+<h1> {{ 'main.header' | trans }}</h1>
 </div>
-<p class="lead">En esta página podéis ver un ejemplo funcional de las actividades a 
-realizar en el módulo de Desarrollo Web en entorno servidor</p>
+<p class="lead"> {{ 'main.lead' | trans }} </p>
 
 
 
-<h3>Usuarios</h3>
-	<p>Para hacer uso completo de la aplicación, será necesario registrarse en la web.
-	Los usuario registrados obtendrán el role ROLE_USER.
-	<p class="text-info">Para acceder como administrador loggearse como: <em>admin/admin</em></p>
+<h3>{{ 'main.header3' | trans }}</h3>
+	<p> {{ 'main.paragraph' | trans }}
+	<p class="text-info"> {{ 'main.text-info' | trans }} </p>
 </ul>
 
 {% endblock %}

@@ -97,3 +97,10 @@ menu:
         logout: 'Salir'
         password_change: 'Cambio contraseña'
         edit: 'Editar'
+main:
+    lead: 'En esta página podéis ver un ejemplo funcional de las actividades a realizar en el módulo de Desarrollo Web en entorno servidor'
+    title: 'Desarrollo Web en entorno servidor'
+    header: 'Symfony'
+    header3 : 'Usuario'
+    paragraph: 'Para hacer uso completo de la aplicación, será necesario registrarse en la web. Los usuario registrados obtendrán el role ROLE_USER.'
+    text-info: 'Para acceder como administrador loggearse como: <em>admin/admin</em>'
